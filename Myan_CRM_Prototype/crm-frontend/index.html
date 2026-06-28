@@ -133,7 +133,7 @@
 <h2 class="font-headline-lg text-headline-lg text-on-surface">Đăng nhập hệ thống</h2>
 </div>
 <!-- Google Login Button -->
-<button class="w-full flex items-center justify-center gap-sm px-md py-sm border border-outline-variant bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200">
+<button id="btn-google-login" type="button" class="w-full flex items-center justify-center gap-sm px-md py-sm border border-outline-variant bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200">
 <svg class="w-5 h-5" viewbox="0 0 24 24">
 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
@@ -195,8 +195,16 @@
 </div>
 </div>
 </div>
-<script></script><script>
-        document.addEventListener('DOMContentLoaded', () => {
+        <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 1. Auth Guard - Kiểm tra nếu đã đăng nhập thì vào thẳng Dashboard
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                window.location.href = 'dashboard.html';
+                return;
+            }
+
+            // 2. Lắng nghe sự kiện đăng nhập bằng Email/Mật khẩu
             const form = document.querySelector('form');
             if(form) {
                 form.addEventListener('submit', async (e) => {
@@ -218,6 +226,25 @@
                     } else {
                         btn.innerText = 'Đăng nhập thành công!';
                         setTimeout(() => { window.location.href = 'dashboard.html'; }, 500);
+                    }
+                });
+            }
+
+            // 3. Lắng nghe sự kiện đăng nhập bằng Google
+            const btnGoogle = document.getElementById('btn-google-login');
+            if(btnGoogle) {
+                btnGoogle.addEventListener('click', async () => {
+                    const originalText = btnGoogle.innerHTML;
+                    btnGoogle.innerText = 'Đang chuyển hướng...';
+                    const { data, error } = await supabase.auth.signInWithOAuth({
+                        provider: 'google',
+                        options: {
+                            redirectTo: window.location.origin + '/Myan_CRM_Prototype/crm-frontend/dashboard.html'
+                        }
+                    });
+                    if(error) {
+                        alert('Lỗi đăng nhập Google: ' + error.message);
+                        btnGoogle.innerHTML = originalText;
                     }
                 });
             }
