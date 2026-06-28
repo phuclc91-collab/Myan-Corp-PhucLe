@@ -213,7 +213,7 @@
 </div>
 </div>
 <div class="mt-xs">
-<h2 class="text-headline-lg font-headline-lg text-primary">150.000.000 <span class="text-body-md font-medium">VND</span></h2>
+<h2 class="text-headline-lg font-headline-lg text-primary" id="metric-revenue">150.000.000 <span class="text-body-md font-medium">VND</span></h2>
 <p class="text-body-sm text-green-600 flex items-center gap-xs font-medium mt-xs">
 <span class="material-symbols-outlined text-[16px]">trending_up</span>
                             +12% so với tháng trước
@@ -229,7 +229,7 @@
 </div>
 </div>
 <div class="mt-xs">
-<h2 class="text-headline-lg font-headline-lg text-on-background">200.000.000 <span class="text-body-md font-medium">VND</span></h2>
+<h2 class="text-headline-lg font-headline-lg text-on-background" id="metric-expected">200.000.000 <span class="text-body-md font-medium">VND</span></h2>
 <p class="text-body-sm text-on-surface-variant flex items-center gap-xs font-medium mt-xs">
 <span class="material-symbols-outlined text-[16px]">schedule</span>
                             Dự báo cuối quý 3
@@ -245,7 +245,7 @@
 </div>
 </div>
 <div class="mt-xs">
-<h2 class="text-headline-lg font-headline-lg text-on-background">+45</h2>
+<h2 class="text-headline-lg font-headline-lg text-on-background" id="metric-new-customers">+45</h2>
 <p class="text-body-sm text-green-600 flex items-center gap-xs font-medium mt-xs">
 <span class="material-symbols-outlined text-[16px]">verified</span>
                             Đã xác thực danh tính
@@ -261,7 +261,7 @@
 </div>
 </div>
 <div class="mt-xs">
-<h2 class="text-headline-lg font-headline-lg text-on-background">12.5%</h2>
+<h2 class="text-headline-lg font-headline-lg text-on-background" id="metric-conversion">12.5%</h2>
 <p class="text-body-sm text-on-surface-variant flex items-center gap-xs font-medium mt-xs">
 <span class="material-symbols-outlined text-[16px]">insights</span>
                             Tăng 2.1% so với kỳ trước
@@ -321,43 +321,7 @@
 <!-- Sales Funnel -->
 <div class="col-span-12 lg:col-span-5 bg-white p-lg rounded-xl border border-outline-variant shadow-sm flex flex-col">
 <h3 class="font-headline-sm text-headline-sm text-on-background mb-lg">Phễu bán hàng</h3>
-<div class="flex-1 flex flex-col gap-sm justify-center">
-<div class="flex items-center gap-md">
-<div class="flex-1 bg-primary h-10 rounded-lg flex items-center justify-between px-md text-white font-bold text-body-sm">
-<span>Tiếp cận</span>
-<span>1,240</span>
-</div>
-<span class="w-12 text-label-sm text-on-surface-variant">100%</span>
-</div>
-<div class="flex items-center gap-md">
-<div class="ml-[4%] w-[92%] bg-primary/85 h-10 rounded-lg flex items-center justify-between px-md text-white font-bold text-body-sm">
-<span>Nuôi dưỡng</span>
-<span>850</span>
-</div>
-<span class="w-12 text-label-sm text-on-surface-variant">68%</span>
-</div>
-<div class="flex items-center gap-md">
-<div class="ml-[8%] w-[84%] bg-primary/70 h-10 rounded-lg flex items-center justify-between px-md text-white font-bold text-body-sm">
-<span>Báo giá</span>
-<span>320</span>
-</div>
-<span class="w-12 text-label-sm text-on-surface-variant">25%</span>
-</div>
-<div class="flex items-center gap-md">
-<div class="ml-[12%] w-[76%] bg-primary/55 h-10 rounded-lg flex items-center justify-between px-md text-white font-bold text-body-sm">
-<span>Thương lượng</span>
-<span>145</span>
-</div>
-<span class="w-12 text-label-sm text-on-surface-variant">11%</span>
-</div>
-<div class="flex items-center gap-md">
-<div class="ml-[16%] w-[68%] bg-tertiary-container h-10 rounded-lg flex items-center justify-between px-md text-white font-bold text-body-sm">
-<span>Thành công</span>
-<span>88</span>
-</div>
-<span class="w-12 text-label-sm text-on-surface-variant">7%</span>
-</div>
-</div>
+<div class="flex-1 flex flex-col gap-sm justify-center" id="funnel-container"></div>
 </div>
 </section>
 <!-- Row 3: Table -->
@@ -379,80 +343,7 @@
 <th class="px-lg py-md text-label-md font-label-md text-on-surface-variant uppercase text-right">Thao tác</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant">
-<tr class="hover:bg-surface-container-lowest transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded bg-secondary-fixed/50 flex items-center justify-center font-bold text-secondary text-xs">TC</div>
-<div>
-<p class="text-body-md font-bold text-on-background">Công ty TNHH TechCore</p>
-<p class="text-[11px] text-on-surface-variant">HĐ-2023-089</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md text-body-md font-bold text-on-background">45.000.000 VND</td>
-<td class="px-lg py-md text-body-md text-on-surface-variant">25 Thg 10, 2023</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-sm py-1 rounded-full bg-[#FEF3C7] text-[#D97706] text-[11px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mr-1.5"></span>
-                                        Đang chờ
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-xs hover:bg-surface-container rounded transition-colors text-on-surface-variant">
-<span class="material-symbols-outlined">more_horiz</span>
-</button>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-lowest transition-colors">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded bg-primary-fixed/50 flex items-center justify-center font-bold text-primary text-xs">MV</div>
-<div>
-<p class="text-body-md font-bold text-on-background">Minh Việt Group</p>
-<p class="text-[11px] text-on-surface-variant">HĐ-2023-112</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md text-body-md font-bold text-on-background">12.500.000 VND</td>
-<td class="px-lg py-md text-body-md text-on-surface-variant">28 Thg 10, 2023</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-sm py-1 rounded-full bg-[#FEF3C7] text-[#D97706] text-[11px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mr-1.5"></span>
-                                        Đang chờ
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-xs hover:bg-surface-container rounded transition-colors text-on-surface-variant">
-<span class="material-symbols-outlined">more_horiz</span>
-</button>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-lowest transition-colors">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded bg-tertiary-fixed/50 flex items-center justify-center font-bold text-tertiary-container text-xs">AN</div>
-<div>
-<p class="text-body-md font-bold text-on-background">An Nhiên Logistics</p>
-<p class="text-[11px] text-on-surface-variant">HĐ-2023-045</p>
-</div>
-</div>
-</td>
-<td class="px-lg py-md text-body-md font-bold text-on-background">68.000.000 VND</td>
-<td class="px-lg py-md text-body-md text-on-surface-variant">02 Thg 11, 2023</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-sm py-1 rounded-full bg-[#FEF3C7] text-[#D97706] text-[11px] font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mr-1.5"></span>
-                                        Đang chờ
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-xs hover:bg-surface-container rounded transition-colors text-on-surface-variant">
-<span class="material-symbols-outlined">more_horiz</span>
-</button>
-</td>
-</tr>
-</tbody>
+<tbody class="divide-y divide-outline-variant" id="mini-payment-table"></tbody>
 </table>
 </div>
 </section>
@@ -479,24 +370,178 @@
         });
     </script>
 <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
+document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+        window.location.href = 'index.html';
+        return;
+    }
+    
+    // Hook up logout
+    const logoutLinks = document.querySelectorAll('a, button');
+    logoutLinks.forEach(link => {
+        if (link.innerText && link.innerText.includes('Đăng xuất')) {
+            link.addEventListener('click', async (e) => {
+                e.preventDefault();
+                await supabase.auth.signOut();
                 window.location.href = 'index.html';
-            }
-            
-            // Hook up logout
-            const logoutLinks = document.querySelectorAll('a, button');
-            logoutLinks.forEach(link => {
-                if (link.innerText && link.innerText.includes('Đăng xuất')) {
-                    link.addEventListener('click', async (e) => {
-                        e.preventDefault();
-                        await supabase.auth.signOut();
-                        window.location.href = 'index.html';
-                    });
-                    if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
-                    if (link.tagName === 'A') link.setAttribute('href', '#');
-                }
             });
-        });
-        </script></body></html>
+            if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
+            if (link.tagName === 'A') link.setAttribute('href', '#');
+        }
+    });
+
+    const formatCurrency = (val) => new Intl.NumberFormat('vi-VN').format(val || 0);
+
+    const loadDashboard = async () => {
+        try {
+            // Fetch necessary data
+            const [
+                { data: subscriptions },
+                { data: leads },
+                { data: stages }
+            ] = await Promise.all([
+                supabase.from('subscriptions').select('*'),
+                supabase.from('leads').select('*').eq('is_deleted', false),
+                supabase.from('pipeline_stages').select('*').order('order', {ascending: true})
+            ]);
+
+            // 1. Metric: Doanh thu thực tế (Completed subscriptions)
+            const actualRevenue = (subscriptions || []).filter(s => s.status === 'completed').reduce((sum, s) => sum + parseFloat(s.amount || 0), 0);
+            const mRev = document.getElementById('metric-revenue');
+            if(mRev) mRev.innerHTML = `${formatCurrency(actualRevenue)} <span class="text-body-md font-medium">VND</span>`;
+
+            // 2. Metric: Doanh thu dự kiến
+            let expectedRevenue = 0;
+            const stageMap = {};
+            if (stages) {
+                stages.forEach(st => stageMap[st.id] = st);
+            }
+            if (leads) {
+                leads.forEach(l => {
+                    if (l.stage_id && stageMap[l.stage_id]) {
+                        const prob = stageMap[l.stage_id].probability || 0;
+                        const val = parseFloat(l.expected_value || 0);
+                        expectedRevenue += val * (prob / 100);
+                    }
+                });
+            }
+            const mExp = document.getElementById('metric-expected');
+            if(mExp) mExp.innerHTML = `${formatCurrency(expectedRevenue)} <span class="text-body-md font-medium">VND</span>`;
+
+            // 3. Metric: Khách hàng mới
+            const totalLeads = leads ? leads.length : 0;
+            const mNew = document.getElementById('metric-new-customers');
+            if(mNew) mNew.innerHTML = `+${totalLeads}`;
+
+            // 4. Metric: Tỷ lệ chuyển đổi
+            // Assume the last stage in stages is the success stage
+            let conversionRate = 0;
+            if (stages && stages.length > 0 && totalLeads > 0) {
+                const lastStage = stages[stages.length - 1];
+                const successCount = leads.filter(l => l.stage_id === lastStage.id).length;
+                conversionRate = (successCount / totalLeads) * 100;
+            }
+            const mConv = document.getElementById('metric-conversion');
+            if(mConv) mConv.innerHTML = `${conversionRate.toFixed(1)}%`;
+
+            // 5. Funnel Chart
+            const funnelContainer = document.getElementById('funnel-container');
+            if (funnelContainer && stages) {
+                let html = '';
+                // Count leads per stage
+                const stageCounts = stages.map(st => {
+                    return {
+                        ...st,
+                        count: leads.filter(l => l.stage_id === st.id).length
+                    };
+                });
+                
+                // For a funnel, max width is 100% (or the max count)
+                const maxCount = Math.max(...stageCounts.map(s => s.count), 1); // prevent division by zero
+
+                const colors = [
+                    'bg-primary',
+                    'bg-primary/85',
+                    'bg-primary/70',
+                    'bg-primary/55',
+                    'bg-tertiary-container'
+                ];
+
+                stageCounts.forEach((st, idx) => {
+                    const widthPct = (st.count / maxCount) * 100;
+                    // minimum width to show text
+                    const displayWidth = Math.max(widthPct, 20); 
+                    const margin = (100 - displayWidth) / 2;
+                    const color = colors[Math.min(idx, colors.length - 1)];
+
+                    html += `
+                    <div class="flex items-center gap-md">
+                        <div style="margin-left: ${margin}%; width: ${displayWidth}%;" class="${color} h-10 rounded-lg flex items-center justify-between px-md text-white font-bold text-body-sm transition-all duration-500">
+                            <span class="truncate pr-2">${st.name}</span>
+                            <span>${st.count}</span>
+                        </div>
+                        <span class="w-12 text-label-sm text-on-surface-variant">${widthPct.toFixed(0)}%</span>
+                    </div>
+                    `;
+                });
+                funnelContainer.innerHTML = html;
+            }
+
+            // 6. Mini Table
+            const tbody = document.getElementById('mini-payment-table');
+            if (tbody) {
+                // get 5 latest pending/overdue payments
+                const { data: upcoming, error: upErr } = await supabase
+                    .from('subscriptions')
+                    .select('*, leads(name)')
+                    .in('status', ['active', 'past_due'])
+                    .order('start_date', { ascending: true })
+                    .limit(5);
+                
+                if (upcoming && upcoming.length > 0) {
+                    tbody.innerHTML = upcoming.map(p => {
+                        const isOverdue = p.status === 'past_due';
+                        const badgeClass = isOverdue ? 'bg-[#FEE2E2] text-[#EF4444]' : 'bg-[#FEF3C7] text-[#D97706]';
+                        const dotClass = isOverdue ? 'bg-[#EF4444]' : 'bg-[#F59E0B]';
+                        const statusText = isOverdue ? 'Quá hạn' : 'Đang chờ';
+                        
+                        return `
+                        <tr class="hover:bg-surface-container-lowest transition-colors group">
+                            <td class="px-lg py-md">
+                                <div class="flex items-center gap-md">
+                                    <div class="w-8 h-8 rounded bg-secondary-fixed/50 flex items-center justify-center font-bold text-secondary text-xs">KH</div>
+                                    <div>
+                                        <p class="text-body-md font-bold text-on-background">${p.leads?.name || 'Vô danh'}</p>
+                                        <p class="text-[11px] text-on-surface-variant">${p.plan_name}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-lg py-md text-body-md font-bold text-on-background">${formatCurrency(p.amount)} VND</td>
+                            <td class="px-lg py-md text-body-md text-on-surface-variant">${new Date(p.start_date).toLocaleDateString('vi-VN')}</td>
+                            <td class="px-lg py-md">
+                                <span class="inline-flex items-center px-sm py-1 rounded-full ${badgeClass} text-[11px] font-bold">
+                                    <span class="w-1.5 h-1.5 rounded-full ${dotClass} mr-1.5"></span>
+                                    ${statusText}
+                                </span>
+                            </td>
+                            <td class="px-lg py-md text-right">
+                                <button class="p-xs hover:bg-surface-container rounded transition-colors text-on-surface-variant">
+                                    <span class="material-symbols-outlined">more_horiz</span>
+                                </button>
+                            </td>
+                        </tr>
+                        `;
+                    }).join('');
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="5" class="text-center py-5 text-outline">Không có khoản thu sắp tới.</td></tr>';
+                }
+            }
+        } catch(err) {
+            console.error('Error loading dashboard:', err);
+        }
+    };
+
+    loadDashboard();
+});
+</script></body></html>
