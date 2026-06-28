@@ -181,7 +181,7 @@
 <!-- Footer -->
 <div class="text-center pt-md">
 <p class="font-body-md text-body-md text-on-surface-variant">
-                        Chưa có tài khoản? <a class="text-primary font-semibold hover:underline" href="#">Đăng ký ngay</a>
+                        Chưa có tài khoản? <a class="text-primary font-semibold hover:underline" href="#" id="btn-open-register">Đăng ký ngay</a>
 </p>
 </div>
 </div>
@@ -268,6 +268,36 @@
 <div class="pt-md flex justify-end gap-sm">
 <button class="px-md py-2 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-variant font-medium" id="btn-cancel-forgot-modal" type="button">Hủy</button>
 <button class="px-md py-2 bg-primary text-white rounded-lg hover:opacity-90 font-medium" id="btn-submit-forgot-modal" type="submit">Gửi liên kết</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- Register Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity" id="register-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-lg transform transition-all">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h3 class="text-headline-sm font-bold text-on-surface">Đăng ký tài khoản</h3>
+<button class="text-outline hover:text-on-surface" id="btn-close-register" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-md" id="form-register">
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Họ và tên *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="reg-name" placeholder="Nguyễn Văn A" required="" type="text"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Email *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="reg-email" placeholder="email@myancorp.com" required="" type="email"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Mật khẩu *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="reg-password" placeholder="Tối thiểu 6 ký tự" required="" type="password"/>
+</div>
+<div class="pt-md flex justify-end gap-sm">
+<button class="px-md py-2 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-variant font-medium" id="btn-cancel-register" type="button">Hủy</button>
+<button class="px-md py-2 bg-primary text-white rounded-lg hover:opacity-90 font-medium" id="btn-submit-register" type="submit">Đăng ký</button>
 </div>
 </form>
 </div>

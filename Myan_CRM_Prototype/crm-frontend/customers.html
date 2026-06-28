@@ -187,11 +187,11 @@
 <div class="h-8 w-px bg-outline-variant mx-2"></div>
 <div class="flex items-center gap-sm cursor-pointer group">
 <div class="text-right">
-<p class="text-body-sm font-semibold leading-none">Admin User</p>
-<p class="text-label-sm text-outline">Sales Lead</p>
+<p class="text-body-sm font-semibold leading-none" id="header-user-name">Admin User</p>
+<p class="text-label-sm text-outline" id="header-user-role">Sales Lead</p>
 </div>
-<img class="w-10 h-10 rounded-full object-cover border-2 border-primary/10" data-alt="Professional headshot of a smiling male executive with clean-cut hair, wearing a navy blue tailored suit and white shirt, set against a soft blurred office background with warm afternoon sunlight. High-quality corporate photography style with natural lighting and professional composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPOqdYHwcSNKoLr-Def36NV8Bm39eq9_q4w4Ds-WW0RQ45jIwMMX-uh6vNoxGrcLyWmfoXBXTs3qKjVeqMU8eTTTgam-jpAHb32iREOa4x8NgTiR8zMDNJnjJMTLn7SFpnkt46encaYnDc99LRdxbcrlSyCQJboTkjziF5TOTatDRDv4PoXBkv27wnV9ygQX18pzXjCM88qn_EQXXsw60XGRA5sHFPTtwpsV0ALwQA5_s_K5GYJ-6NyADpdJfiVmy7jZ_QzoKLb9M"/>
-</div>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary/10" data-alt="Professional headshot of a smiling male executive with clean-cut hair, wearing a navy blue tailored suit and white shirt, set against a soft blurred office background with warm afternoon sunlight. High-quality corporate photography style with natural lighting and professional composition." id="header-user-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPOqdYHwcSNKoLr-Def36NV8Bm39eq9_q4w4Ds-WW0RQ45jIwMMX-uh6vNoxGrcLyWmfoXBXTs3qKjVeqMU8eTTTgam-jpAHb32iREOa4x8NgTiR8zMDNJnjJMTLn7SFpnkt46encaYnDc99LRdxbcrlSyCQJboTkjziF5TOTatDRDv4PoXBkv27wnV9ygQX18pzXjCM88qn_EQXXsw60XGRA5sHFPTtwpsV0ALwQA5_s_K5GYJ-6NyADpdJfiVmy7jZ_QzoKLb9M"/>
+<button class="ml-2 w-8 h-8 rounded-full bg-error/10 text-error flex items-center justify-center hover:bg-error/20 transition-colors" id="btn-logout" title="Đăng xuất"><span class="material-symbols-outlined text-[18px]">logout</span></button></div>
 </div>
 </header>
 <!-- Main Content -->
@@ -389,7 +389,6 @@
 </form>
 </div>
 </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
     const { data: { session } } = await supabase.auth.getSession();
