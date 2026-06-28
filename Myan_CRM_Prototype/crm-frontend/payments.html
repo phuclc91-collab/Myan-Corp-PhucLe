@@ -196,7 +196,7 @@
 <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Tiến độ dòng tiền</h2>
 <p class="text-on-surface-variant font-body-md text-body-md mt-1">Quản lý và theo dõi các đợt thanh toán hợp đồng tháng này.</p>
 </div>
-<button class="bg-primary text-white px-lg py-sm rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-primary/90 transition-all shadow-sm active:scale-95">
+<button class="bg-primary text-white px-lg py-sm rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-primary/90 transition-all shadow-sm active:scale-95" id="btn-add-payment">
 <span class="material-symbols-outlined text-[18px]">add_card</span>
                     Tạo phiếu thu mới
                 </button>
@@ -210,7 +210,7 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tổng phải thu trong tháng</p>
-<h3 class="font-headline-md text-headline-md text-primary mt-1">2.450.000.000 <span class="text-body-sm font-normal">VND</span></h3>
+<h3 class="font-headline-md text-headline-md text-primary mt-1" id="stat-expected">2.450.000.000 <span class="text-body-sm font-normal">VND</span></h3>
 </div>
 </div>
 <!-- Stat Card 2 -->
@@ -220,7 +220,7 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tổng đã thu</p>
-<h3 class="font-headline-md text-headline-md text-green-700 mt-1">1.120.500.000 <span class="text-body-sm font-normal">VND</span></h3>
+<h3 class="font-headline-md text-headline-md text-green-700 mt-1" id="stat-paid">1.120.500.000 <span class="text-body-sm font-normal">VND</span></h3>
 </div>
 </div>
 <!-- Stat Card 3 (Bonus Context) -->
@@ -230,7 +230,7 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tổng quá hạn</p>
-<h3 class="font-headline-md text-headline-md text-rose-700 mt-1">340.000.000 <span class="text-body-sm font-normal">VND</span></h3>
+<h3 class="font-headline-md text-headline-md text-rose-700 mt-1" id="stat-overdue">340.000.000 <span class="text-body-sm font-normal">VND</span></h3>
 </div>
 </div>
 <!-- Stat Card 4 (Bonus Context) -->
@@ -240,7 +240,7 @@
 </div>
 <div>
 <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Chưa thanh toán</p>
-<h3 class="font-headline-md text-headline-md text-amber-700 mt-1">989.500.000 <span class="text-body-sm font-normal">VND</span></h3>
+<h3 class="font-headline-md text-headline-md text-amber-700 mt-1" id="stat-pending">989.500.000 <span class="text-body-sm font-normal">VND</span></h3>
 </div>
 </div>
 </div>
@@ -272,128 +272,7 @@
 <th class="px-lg py-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Hành động</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant/20">
-<!-- Row 1: Paid -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">#MC-2024-001</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Tập đoàn Viễn thông Alpha</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">Tạm ứng (30%)</td>
-<td class="px-lg py-md font-headline-sm text-headline-sm text-primary">450.000.000 <span class="text-xs font-normal">VND</span></td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">15/10/2023</td>
-<td class="px-lg py-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-semibold bg-[#D1FAE5] text-[#10B981]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] mr-1.5"></span>
-                                        Đã thanh toán
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors" title="Xem chứng từ">
-<span class="material-symbols-outlined text-[20px]">receipt_long</span>
-</button>
-</td>
-</tr>
-<!-- Row 2: Pending -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">#MC-2024-045</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Công ty CP Xây dựng Delta</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">Nghiệm thu giai đoạn 1</td>
-<td class="px-lg py-md font-headline-sm text-headline-sm text-primary">820.000.000 <span class="text-xs font-normal">VND</span></td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">28/05/2024</td>
-<td class="px-lg py-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-semibold bg-[#FEF3C7] text-[#F59E0B]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mr-1.5"></span>
-                                        Chưa thanh toán
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="bg-white border border-outline-variant px-md py-1.5 rounded text-label-sm text-on-surface-variant font-semibold hover:border-primary hover:text-primary transition-all active:scale-95">
-                                        Xác nhận nhận tiền
-                                    </button>
-</td>
-</tr>
-<!-- Row 3: Overdue -->
-<tr class="hover:bg-surface-container-low transition-colors group bg-rose-50/20">
-<td class="px-lg py-md border-l-4 border-rose-500">
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">#MC-2023-112</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Logistics Vận tải Toàn Cầu</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">Quyết toán đợt cuối</td>
-<td class="px-lg py-md font-headline-sm text-headline-sm text-rose-700">340.000.000 <span class="text-xs font-normal">VND</span></td>
-<td class="px-lg py-md font-body-md text-body-md text-rose-700 font-semibold">10/04/2024</td>
-<td class="px-lg py-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-semibold bg-[#FFE4E6] text-[#F43F5E]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F43F5E] mr-1.5"></span>
-                                        Quá hạn
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<div class="flex items-center justify-end gap-2">
-<button class="bg-rose-600 text-white px-md py-1.5 rounded text-label-sm font-semibold hover:bg-rose-700 transition-all active:scale-95 shadow-sm">
-                                            Gửi nhắc nợ
-                                        </button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-[20px]">more_vert</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 4: Paid -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">#MC-2024-009</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Năng lượng xanh Việt Nam</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">Tạm ứng đợt 2</td>
-<td class="px-lg py-md font-headline-sm text-headline-sm text-primary">670.500.000 <span class="text-xs font-normal">VND</span></td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">05/05/2024</td>
-<td class="px-lg py-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-semibold bg-[#D1FAE5] text-[#10B981]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] mr-1.5"></span>
-                                        Đã thanh toán
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-[20px]">receipt_long</span>
-</button>
-</td>
-</tr>
-<!-- Row 5: Pending -->
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md">
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">#MC-2024-102</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Công nghệ cao Nano-Tech</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">Đợt 1 / Thiết bị</td>
-<td class="px-lg py-md font-headline-sm text-headline-sm text-primary">169.500.000 <span class="text-xs font-normal">VND</span></td>
-<td class="px-lg py-md font-body-md text-body-md text-on-surface">12/06/2024</td>
-<td class="px-lg py-md text-center">
-<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-semibold bg-[#FEF3C7] text-[#F59E0B]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B] mr-1.5"></span>
-                                        Chưa thanh toán
-                                    </span>
-</td>
-<td class="px-lg py-md text-right">
-<button class="bg-white border border-outline-variant px-md py-1.5 rounded text-label-sm text-on-surface-variant font-semibold hover:border-primary hover:text-primary transition-all active:scale-95">
-                                        Xác nhận nhận tiền
-                                    </button>
-</td>
-</tr>
-</tbody>
+<tbody class="divide-y divide-outline-variant/20" id="payment-table-body"></tbody>
 </table>
 </div>
 <!-- Pagination -->
@@ -471,6 +350,49 @@
 <button class="flex-1 bg-white/10 hover:bg-white/20 py-2 rounded-lg font-label-md text-label-md border border-white/20 transition-all">Chi tiết</button>
 <button class="flex-1 bg-white text-primary py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 shadow-lg">Đối soát</button>
 </div>
+</div>
+</div>
+
+<!-- Create Payment Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity" id="payment-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-lg transform transition-all">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h3 class="text-headline-sm font-bold text-on-surface">Tạo phiếu thu mới</h3>
+<button class="text-outline hover:text-on-surface" id="btn-close-modal" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-md" id="form-add-payment">
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Khách hàng / Hợp đồng *</label>
+<select class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="payment-lead" required="">
+<option value="">-- Chọn khách hàng --</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Đợt thanh toán (Tên gói) *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="payment-plan" placeholder="VD: Tạm ứng đợt 1" required="" type="text"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Số tiền (VNĐ) *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="payment-amount" min="0" required="" step="1000" type="number"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Hạn thanh toán *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="payment-date" required="" type="date"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Trạng thái</label>
+<select class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="payment-status">
+<option selected="" value="active">Chưa thanh toán</option>
+<option value="completed">Đã thanh toán</option>
+</select>
+</div>
+<div class="pt-md flex justify-end gap-sm">
+<button class="px-md py-2 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-variant font-medium" id="btn-cancel-modal" type="button">Hủy</button>
+<button class="px-md py-2 bg-primary text-white rounded-lg hover:opacity-90 font-medium" id="btn-submit-modal" type="submit">Lưu phiếu thu</button>
+</div>
+</form>
 </div>
 </div>
 </main>
