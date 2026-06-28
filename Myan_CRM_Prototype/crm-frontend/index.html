@@ -133,7 +133,7 @@
 <h2 class="font-headline-lg text-headline-lg text-on-surface">Đăng nhập hệ thống</h2>
 </div>
 <!-- Google Login Button -->
-<button id="btn-google-login" type="button" class="w-full flex items-center justify-center gap-sm px-md py-sm border border-outline-variant bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200">
+<button class="w-full flex items-center justify-center gap-sm px-md py-sm border border-outline-variant bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" id="btn-google-login" type="button">
 <svg class="w-5 h-5" viewbox="0 0 24 24">
 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
@@ -171,7 +171,7 @@
 <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20 cursor-pointer" type="checkbox"/>
 <span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">Ghi nhớ đăng nhập</span>
 </label>
-<a class="font-label-md text-label-md text-primary hover:underline transition-all" href="#">Quên mật khẩu?</a>
+<a class="font-label-md text-label-md text-primary hover:underline transition-all" href="#" id="btn-forgot-pwd">Quên mật khẩu?</a>
 </div>
 <!-- Submit Button -->
 <button class="w-full py-md px-lg bg-primary-container hover:bg-primary-container/90 text-white rounded-lg font-headline-sm text-headline-sm transition-all duration-200 active:scale-[0.99] shadow-sm" type="submit">
@@ -195,7 +195,7 @@
 </div>
 </div>
 </div>
-        <script>
+<script>
         document.addEventListener('DOMContentLoaded', async () => {
             // 1. Auth Guard - Kiểm tra nếu đã đăng nhập thì vào thẳng Dashboard
             const { data: { session } } = await supabase.auth.getSession();
@@ -249,4 +249,27 @@
                 });
             }
         });
-        </script></body></html>
+        </script>
+<!-- Forgot Password Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity" id="forgot-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-lg transform transition-all">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h3 class="text-headline-sm font-bold text-on-surface">Quên mật khẩu</h3>
+<button class="text-outline hover:text-on-surface" id="btn-close-forgot-modal" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-4">Vui lòng nhập email đã đăng ký của bạn. Chúng tôi sẽ gửi một liên kết để bạn đặt lại mật khẩu.</p>
+<form class="space-y-md" id="form-forgot-pwd">
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs" for="forgot-email">Email</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="forgot-email" placeholder="Nhập email của bạn" required="" type="email"/>
+</div>
+<div class="pt-md flex justify-end gap-sm">
+<button class="px-md py-2 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-variant font-medium" id="btn-cancel-forgot-modal" type="button">Hủy</button>
+<button class="px-md py-2 bg-primary text-white rounded-lg hover:opacity-90 font-medium" id="btn-submit-forgot-modal" type="submit">Gửi liên kết</button>
+</div>
+</form>
+</div>
+</div>
+</body></html>
