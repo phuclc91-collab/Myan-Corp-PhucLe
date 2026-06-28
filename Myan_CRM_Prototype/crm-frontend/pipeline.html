@@ -133,7 +133,7 @@
             cursor: grabbing;
         }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script></head>
 <body class="bg-[#F8FAFC] text-on-background">
 <!-- Side Navigation -->
 <aside class="fixed left-0 top-0 h-screen w-[280px] bg-primary dark:bg-primary-container flex flex-col py-lg z-50">
@@ -210,166 +210,11 @@
 </div>
 <div class="bg-primary-container/5 border border-primary/10 rounded-xl px-lg py-md text-right">
 <p class="text-label-md text-secondary uppercase tracking-widest">Tổng giá trị đường ống</p>
-<p class="text-headline-md font-bold text-primary">4.500.000.000 VND</p>
+<p class="text-headline-md font-bold text-primary" id="total-pipeline-value">4.500.000.000 VND</p>
 </div>
 </div>
 <!-- Kanban Board -->
-<div class="kanban-scroll flex gap-lg overflow-x-auto pb-lg">
-<!-- Column 1: Tiếp cận -->
-<div class="flex-shrink-0 w-80">
-<div class="flex justify-between items-center mb-md px-sm">
-<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
-                            Tiếp cận
-                            <span class="bg-surface-container-highest text-on-surface-variant text-[11px] px-2 py-0.5 rounded-full">3</span>
-</h3>
-<p class="font-label-md text-secondary">550.000.000 VND</p>
-</div>
-<div class="space-y-md min-h-[500px] p-sm rounded-xl border-2 border-dashed border-outline-variant/30">
-<!-- Card 1 -->
-<div class="bg-white border border-outline-variant p-md rounded-[6px] hover:shadow-md transition-shadow cursor-pointer">
-<div class="flex justify-between items-start mb-sm">
-<h4 class="font-headline-sm text-on-primary-container font-semibold">Gói ERP Vingroup</h4>
-<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Cao</span>
-</div>
-<p class="text-headline-sm font-bold text-primary-container mb-md">350.000.000 VND</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-sm">
-<img class="w-6 h-6 rounded-full" data-alt="A close-up headshot of a smiling young professional woman with glasses, soft office lighting, cinematic blur in the background, professional corporate portraiture style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqvUp3zBJaq3jBGEv-YVOtWNuuJvf4yXAOk0dw185m0-2EY1iG2WSyAWGzfonPyCmxkzN37zOgJ88QqExtp0ddlsm-_q_iTcG75-qZnAZJWZKf_nooMsac8wpmp2VHRbs-hqxpkLV1Dmw_b_GjjjwxaOq5InMRaNqIb3vXr2OVHeGV2K9lmXWls7OlskIX8V_tNwxpmwM-YHv3RYQ5vkEy_sdfw2IMBXD52X_mODTIYv75N_Jdls6q1XcDXHeneNzn-w7IZHm8Gf0"/>
-<span class="text-body-sm text-on-surface-variant">Thanh Huyền</span>
-</div>
-<span class="material-symbols-outlined text-outline text-lg">more_horiz</span>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="bg-white border border-outline-variant p-md rounded-[6px] hover:shadow-md transition-shadow cursor-pointer">
-<div class="flex justify-between items-start mb-sm">
-<h4 class="font-headline-sm text-on-primary-container font-semibold">Tư vấn Cloud Retail</h4>
-<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Trung bình</span>
-</div>
-<p class="text-headline-sm font-bold text-primary-container mb-md">120.000.000 VND</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-sm">
-<img class="w-6 h-6 rounded-full" data-alt="A portrait of a male tech consultant in a casual blazer, modern minimal office environment with large windows, bright morning light, professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCxVxEUpAU5yU5TOu5YCEKR6w-Hat99mfao8pAfpuq02sqM1JZ6MU_34dTgP-kKtrPXAR7GgqNcThTE2gCyvaI43miT45-c35ZmiUGiIXHOt_K_si-dnrhWehSzFc-9OJ8T_Sn1nSLy_UbbR_WHNLYYCl53PIHzKdhLlPWFLCHacYJInWkyEtUr9atCF7N7C3OIGCbj59MrLBtpEY7y0jWknbk4zMzLPkj5mHtoaje3yLMlSPW42XH7QUoJv-OHRp_M5yuH6zh0yc"/>
-<span class="text-body-sm text-on-surface-variant">Minh Quân</span>
-</div>
-<span class="material-symbols-outlined text-outline text-lg">more_horiz</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Column 2: Tư vấn -->
-<div class="flex-shrink-0 w-80">
-<div class="flex justify-between items-center mb-md px-sm">
-<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
-                            Tư vấn
-                            <span class="bg-surface-container-highest text-on-surface-variant text-[11px] px-2 py-0.5 rounded-full">2</span>
-</h3>
-<p class="font-label-md text-secondary">820.000.000 VND</p>
-</div>
-<div class="space-y-md min-h-[500px] p-sm rounded-xl border-2 border-dashed border-outline-variant/30">
-<!-- Card 1 (Ghost) -->
-<div class="ghost-card border border-outline-variant p-md rounded-[6px] h-32">
-</div>
-<!-- Card 2 -->
-<div class="bg-white border border-outline-variant p-md rounded-[6px] hover:shadow-md transition-shadow cursor-pointer">
-<div class="flex justify-between items-start mb-sm">
-<h4 class="font-headline-sm text-on-primary-container font-semibold">Hệ thống Logistic</h4>
-<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Cao</span>
-</div>
-<p class="text-headline-sm font-bold text-primary-container mb-md">450.000.000 VND</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-sm">
-<img class="w-6 h-6 rounded-full" data-alt="A professional portrait of a senior account manager, clean business casual attire, soft natural lighting from a side window, high-end professional aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkLLeKgJio6oCARvgJ2D0OeYILFszBNtzNJHqNle5-x0ti3dShQdARbv6Pg-_7DvXL2h5T_Fq-CsAYM26ixfo3otnYkhZWdPvJS0zTH3PxgC_cuCLaqgIpVC2nH-CmJbDTU8Y4nNYZFB0ASkK2SBFClGN97EHrSfI3kYic6T_EbvcNh3hQf-WgeVWQCssgYNjDpHpauFKbcdMKZIyv22OUK64_WuMZtU43DGC0nT-BSYQjVFDmWeDcBNIn1s2bBMBULXMMXS-Eo-0"/>
-<span class="text-body-sm text-on-surface-variant">Anh Tuấn</span>
-</div>
-<span class="material-symbols-outlined text-outline text-lg">more_horiz</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Column 3: Báo giá -->
-<div class="flex-shrink-0 w-80">
-<div class="flex justify-between items-center mb-md px-sm">
-<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
-                            Báo giá
-                            <span class="bg-surface-container-highest text-on-surface-variant text-[11px] px-2 py-0.5 rounded-full">1</span>
-</h3>
-<p class="font-label-md text-secondary">1.250.000.000 VND</p>
-</div>
-<div class="space-y-md min-h-[500px] p-sm rounded-xl border-2 border-dashed border-outline-variant/30">
-<!-- Dragging Card -->
-<div class="dragging-card bg-white p-md rounded-[6px] z-10 relative">
-<div class="flex justify-between items-start mb-sm">
-<h4 class="font-headline-sm text-on-primary-container font-semibold">Hợp đồng Vinamilk</h4>
-<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Cao</span>
-</div>
-<p class="text-headline-sm font-bold text-primary-container mb-md">1.250.000.000 VND</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-sm">
-<img class="w-6 h-6 rounded-full" data-alt="A vibrant professional headshot of a business analyst, neutral background with a slight blue tint, clean and sharp lighting, professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyHe6cmJ8tPpGTCABZuar3fC3h4cJSzxW_cYfoip7GIDojHMFZz-aHYMA8NUMy5vCuOGLG75FwGvZ_t8MRtngzGSAPpOsjdmGm6x-oIeYuVXCUTQIM7px44tT4qTRc94zqmWa5iBycAwnyQm6fVyLU8S4c9pGkbsUpcDFWlbTlNITa2tU_ao8kQ3IgiQAqrjErEjAO13nY8BfxoMwiZVwY63_oyMxV5WIh1MyixSGBrLT-FKVNOXXJvZlTqnNcB7mWo0F3xnzLuLc"/>
-<span class="text-body-sm text-on-surface-variant">Quốc Trung</span>
-</div>
-<span class="material-symbols-outlined text-outline text-lg">drag_indicator</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Column 4: Thương thảo -->
-<div class="flex-shrink-0 w-80">
-<div class="flex justify-between items-center mb-md px-sm">
-<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
-                            Thương thảo
-                            <span class="bg-surface-container-highest text-on-surface-variant text-[11px] px-2 py-0.5 rounded-full">2</span>
-</h3>
-<p class="font-label-md text-secondary">930.000.000 VND</p>
-</div>
-<div class="space-y-md min-h-[500px] p-sm rounded-xl border-2 border-dashed border-outline-variant/30">
-<div class="bg-white border border-outline-variant p-md rounded-[6px] hover:shadow-md transition-shadow cursor-pointer">
-<div class="flex justify-between items-start mb-sm">
-<h4 class="font-headline-sm text-on-primary-container font-semibold">Tích hợp API Masan</h4>
-<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Trung bình</span>
-</div>
-<p class="text-headline-sm font-bold text-primary-container mb-md">580.000.000 VND</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-sm">
-<img class="w-6 h-6 rounded-full" data-alt="A portrait of a male technical lead, wearing a professional polo shirt, modern office workspace background, bright and clean aesthetic, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByQZbiiKE9y5lQPPUtJDs8Q_a2WjZ9jQloKakCNIRW0tEh6e9ukC6DBzIdzXhgi4JDCIo78_WTUSNRZ1SFlpj5lFFag8lU0gVd185oc8srH1vlqe1iI83mnBKf7ml9RPbgvyO0iOLDfbgZeWQifRkoI5_n1Ocyb9xUuUnhSY8uP5ZXYJ4wj0rH0hHgUs0Vwp5YeEFcLVnFXYSF5VhdscGFaS0WIyzUroRU55lfl-mJ6wbLoZLEZ5KNuryI98t1kKup104XLu4bNz8"/>
-<span class="text-body-sm text-on-surface-variant">Lâm Tùng</span>
-</div>
-<span class="material-symbols-outlined text-outline text-lg">more_horiz</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Column 5: Thành công -->
-<div class="flex-shrink-0 w-80">
-<div class="flex justify-between items-center mb-md px-sm">
-<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
-                            Thành công
-                            <span class="bg-surface-container-highest text-on-surface-variant text-[11px] px-2 py-0.5 rounded-full">1</span>
-</h3>
-<p class="font-label-md text-secondary">950.000.000 VND</p>
-</div>
-<div class="space-y-md min-h-[500px] p-sm rounded-xl border-2 border-dashed border-outline-variant/30 bg-primary-container/5">
-<div class="bg-white border-2 border-success-container p-md rounded-[6px] shadow-sm relative overflow-hidden">
-<div class="absolute top-0 right-0 p-1 bg-green-500 text-white rounded-bl-lg">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-</div>
-<div class="flex justify-between items-start mb-sm">
-<h4 class="font-headline-sm text-on-primary-container font-semibold">Hợp đồng Techcombank</h4>
-<span class="bg-primary-fixed text-on-primary-fixed text-[10px] font-bold px-2 py-0.5 rounded uppercase">Thấp</span>
-</div>
-<p class="text-headline-sm font-bold text-primary-container mb-md">950.000.000 VND</p>
-<div class="flex items-center justify-between mt-auto">
-<div class="flex items-center gap-sm">
-<img class="w-6 h-6 rounded-full" data-alt="A corporate profile of a female sales director, elegant attire, soft focus corporate office background, warm lighting, high quality digital photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvXJRNnkEZAs6lFDBRnYC149xyvPzcUXiLM48NFOhQ3tXkD5M2lKN0AxVBbzHRz_myaXTFPi_D9PlThTPEiJxjwA9bjovXmgBoyipEwqbyvB0TQqf6GwDn2bHZAJyqfYS4UjmiCnY3lCdN1vrZxn3treOEqzaG1R0wj3WCLHS8J7Rag47M4Lt5D7ehUFwAtexVkpd-a0YgDvXi9xk4RI1HpUdI76dmkLUemxNSA4R5f5KebyepDVpdg2P7usD8iYH56v_Afkm8N1Q"/>
-<span class="text-body-sm text-on-surface-variant">Phương Nga</span>
-</div>
-<span class="material-symbols-outlined text-outline text-lg">verified</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div class="kanban-scroll flex gap-lg overflow-x-auto pb-lg" id="kanban-board"></div>
 <!-- Floating Action Button -->
 <button class="fixed bottom-margin-desktop right-margin-desktop bg-primary-container text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
 <span class="material-symbols-outlined text-3xl">add</span>
@@ -377,40 +222,175 @@
 </div>
 </main>
 <script>
-        // Simple micro-interaction for cards
-        document.querySelectorAll('.bg-white.border.p-md').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.classList.add('translate-y-[-2px]');
-            });
-            card.addEventListener('mouseleave', () => {
-                card.classList.remove('translate-y-[-2px]');
-            });
-        });
-
-        // Theme toggle simulation (Optional)
-        const toggleTheme = () => {
-            document.documentElement.classList.toggle('dark');
-        };
-    </script>
-<script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
+document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+        window.location.href = 'index.html';
+        return;
+    }
+    
+    // Hook up logout
+    const logoutLinks = document.querySelectorAll('a, button');
+    logoutLinks.forEach(link => {
+        if (link.innerText && link.innerText.includes('Đăng xuất')) {
+            link.addEventListener('click', async (e) => {
+                e.preventDefault();
+                await supabase.auth.signOut();
                 window.location.href = 'index.html';
-            }
-            
-            // Hook up logout
-            const logoutLinks = document.querySelectorAll('a, button');
-            logoutLinks.forEach(link => {
-                if (link.innerText && link.innerText.includes('Đăng xuất')) {
-                    link.addEventListener('click', async (e) => {
-                        e.preventDefault();
-                        await supabase.auth.signOut();
-                        window.location.href = 'index.html';
-                    });
-                    if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
-                    if (link.tagName === 'A') link.setAttribute('href', '#');
-                }
             });
+            if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
+            if (link.tagName === 'A') link.setAttribute('href', '#');
+        }
+    });
+
+    // --- KANBAN LOGIC ---
+    const board = document.getElementById('kanban-board');
+    const totalPipelineValueEl = document.getElementById('total-pipeline-value');
+    
+    // Format tiền
+    const formatCurrency = (val) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(val || 0);
+
+    // Get Initials
+    const getInitials = (name) => {
+        if(!name) return '??';
+        const parts = name.trim().split(' ');
+        if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+        return name.substring(0,2).toUpperCase();
+    };
+    
+    // Determine Priority color based on value
+    const getPriorityHtml = (value) => {
+        if (value >= 500000000) {
+            return `<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Cao</span>`;
+        } else if (value >= 100000000) {
+            return `<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded uppercase">Trung bình</span>`;
+        }
+        return `<span class="bg-primary-fixed text-on-primary-fixed text-[10px] font-bold px-2 py-0.5 rounded uppercase">Thấp</span>`;
+    };
+
+    const loadBoard = async () => {
+        try {
+            board.innerHTML = '<div class="w-full text-center py-10 text-outline">Đang tải bảng Kanban...</div>';
+            
+            // 1. Fetch Stages
+            const { data: stages, error: stageErr } = await supabase.from('pipeline_stages').select('*').order('order', { ascending: true });
+            if(stageErr) throw stageErr;
+            
+            // 2. Fetch Leads
+            const { data: leads, error: leadErr } = await supabase.from('leads').select('*, profiles!leads_assigned_to_fkey(full_name)').eq('is_deleted', false);
+            if(leadErr) throw leadErr;
+            
+            board.innerHTML = '';
+            let totalPipelineValue = 0;
+            
+            // Render columns
+            stages.forEach(stage => {
+                // Determine leads for this stage
+                let stageLeads = leads.filter(l => l.stage_id === stage.id);
+                // If it's the first stage, also include leads with no stage_id
+                if (stage.order === 1) {
+                    stageLeads = stageLeads.concat(leads.filter(l => !l.stage_id));
+                }
+                
+                const stageValue = stageLeads.reduce((sum, l) => sum + Number(l.expected_value || 0), 0);
+                totalPipelineValue += stageValue;
+                
+                const colHTML = `
+                <div class="flex-shrink-0 w-80">
+                    <div class="flex justify-between items-center mb-md px-sm">
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-sm">
+                            ${stage.name}
+                            <span class="bg-surface-container-highest text-on-surface-variant text-[11px] px-2 py-0.5 rounded-full" id="count-${stage.id}">${stageLeads.length}</span>
+                        </h3>
+                        <p class="font-label-md text-secondary" id="value-${stage.id}">${formatCurrency(stageValue)}</p>
+                    </div>
+                    <div class="space-y-md min-h-[500px] p-sm rounded-xl border-2 border-dashed border-outline-variant/30 kanban-column-body bg-surface-container-lowest" data-stage-id="${stage.id}">
+                        ${stageLeads.map(lead => `
+                        <!-- Card -->
+                        <div class="bg-white border border-outline-variant p-md rounded-[6px] hover:shadow-md transition-shadow cursor-pointer kanban-card" data-lead-id="${lead.id}" data-value="${lead.expected_value || 0}">
+                            <div class="flex justify-between items-start mb-sm">
+                                <h4 class="font-headline-sm text-on-primary-container font-semibold">${lead.name}</h4>
+                                ${getPriorityHtml(lead.expected_value)}
+                            </div>
+                            <p class="text-headline-sm font-bold text-primary-container mb-md">${formatCurrency(lead.expected_value)}</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-sm">
+                                    <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-[10px]">${getInitials(lead.profiles?.full_name)}</div>
+                                    <span class="text-body-sm text-on-surface-variant">${lead.profiles?.full_name || 'Chưa giao'}</span>
+                                </div>
+                                <span class="material-symbols-outlined text-outline text-lg">more_horiz</span>
+                            </div>
+                        </div>
+                        `).join('')}
+                    </div>
+                </div>
+                `;
+                board.insertAdjacentHTML('beforeend', colHTML);
+            });
+            
+            if (totalPipelineValueEl) totalPipelineValueEl.innerText = formatCurrency(totalPipelineValue);
+            
+            // 3. Initialize SortableJS
+            document.querySelectorAll('.kanban-column-body').forEach(container => {
+                new Sortable(container, {
+                    group: 'pipeline',
+                    animation: 150,
+                    ghostClass: 'opacity-50',
+                    onEnd: async function (evt) {
+                        const itemEl = evt.item;  // dragged HTMLElement
+                        const toContainer = evt.to;    // target list
+                        const fromContainer = evt.from;
+                        
+                        if(toContainer === fromContainer) return;
+                        
+                        const leadId = itemEl.getAttribute('data-lead-id');
+                        const newStageId = toContainer.getAttribute('data-stage-id');
+                        
+                        // Optimistic UI updates could go here (updating the count/values of headers)
+                        recalculateColumns();
+                        
+                        // Update DB
+                        try {
+                            const { error } = await supabase.from('leads').update({ stage_id: newStageId }).eq('id', leadId);
+                            if(error) throw error;
+                        } catch(err) {
+                            console.error('Update stage failed:', err);
+                            alert('Lỗi khi chuyển trạng thái: ' + err.message);
+                            // Fallback reload if fail
+                            loadBoard();
+                        }
+                    },
+                });
+            });
+            
+        } catch(err) {
+            console.error(err);
+            board.innerHTML = '<div class="w-full text-center py-10 text-error">Lỗi tải dữ liệu Kanban.</div>';
+        }
+    };
+    
+    // Function to recalculate headers locally after a drop
+    const recalculateColumns = () => {
+        let totalVal = 0;
+        document.querySelectorAll('.kanban-column-body').forEach(col => {
+            const stageId = col.getAttribute('data-stage-id');
+            const cards = col.querySelectorAll('.kanban-card');
+            
+            let colValue = 0;
+            cards.forEach(card => {
+                colValue += parseFloat(card.getAttribute('data-value')) || 0;
+            });
+            totalVal += colValue;
+            
+            const countEl = document.getElementById(`count-${stageId}`);
+            const valEl = document.getElementById(`value-${stageId}`);
+            if(countEl) countEl.innerText = cards.length;
+            if(valEl) valEl.innerText = formatCurrency(colValue);
         });
-        </script></body></html>
+        
+        if(totalPipelineValueEl) totalPipelineValueEl.innerText = formatCurrency(totalVal);
+    };
+
+    loadBoard();
+});
+</script></body></html>
