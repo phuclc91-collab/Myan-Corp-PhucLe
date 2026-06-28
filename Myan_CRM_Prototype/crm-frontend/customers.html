@@ -207,7 +207,7 @@
 <span class="material-symbols-outlined text-[20px]">file_download</span>
 <span>Import CSV</span>
 </button>
-<button class="flex items-center gap-sm px-lg py-2.5 bg-primary-container text-white font-semibold rounded-lg hover:opacity-90 transition-all custom-shadow">
+<button class="flex items-center gap-sm px-lg py-2.5 bg-primary-container text-white font-semibold rounded-lg hover:opacity-90 transition-all custom-shadow" id="btn-add-customer">
 <span class="material-symbols-outlined text-[20px]">add</span>
 <span>Thêm khách hàng</span>
 </button>
@@ -261,138 +261,7 @@
 <th class="px-lg py-md text-label-md text-on-surface-variant font-bold uppercase tracking-wider w-16"></th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant">
-<!-- Row 1 -->
-<tr class="hover:bg-surface-container transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">NH</div>
-<span class="text-body-md font-bold text-on-surface">Nguyễn Hoàng Anh</span>
-</div>
-</td>
-<td class="px-lg py-md text-body-md">090 123 4567</td>
-<td class="px-lg py-md text-body-md text-outline">hoanganh@email.com</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#10B981]/10 text-[#10B981] uppercase tracking-wide">VIP</span>
-</td>
-<td class="px-lg py-md text-body-md font-semibold text-primary">500,000,000 ₫</td>
-<td class="px-lg py-md">
-<div class="flex items-center gap-sm">
-<div class="w-6 h-6 rounded-full bg-surface-dim"></div>
-<span class="text-body-sm">Lê Minh C</span>
-</div>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="hover:bg-surface-container transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold text-label-md">TT</div>
-<span class="text-body-md font-bold text-on-surface">Trần Thanh Tùng</span>
-</div>
-</td>
-<td class="px-lg py-md text-body-md">091 987 6543</td>
-<td class="px-lg py-md text-body-md text-outline">tungtran@company.vn</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#F59E0B]/10 text-[#F59E0B] uppercase tracking-wide">Đại lý</span>
-</td>
-<td class="px-lg py-md text-body-md font-semibold text-primary">1,200,000,000 ₫</td>
-<td class="px-lg py-md">
-<div class="flex items-center gap-sm">
-<div class="w-6 h-6 rounded-full bg-surface-dim"></div>
-<span class="text-body-sm">Nguyễn Văn A</span>
-</div>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="hover:bg-surface-container transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-on-tertiary-container/10 flex items-center justify-center text-on-tertiary-container font-bold text-label-md">PL</div>
-<span class="text-body-md font-bold text-on-surface">Phạm Linh Chi</span>
-</div>
-</td>
-<td class="px-lg py-md text-body-md">098 555 1234</td>
-<td class="px-lg py-md text-body-md text-outline">chi.pham@gmail.com</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#3B82F6]/10 text-[#3B82F6] uppercase tracking-wide">Khách lẻ</span>
-</td>
-<td class="px-lg py-md text-body-md font-semibold text-primary">45,000,000 ₫</td>
-<td class="px-lg py-md">
-<div class="flex items-center gap-sm">
-<div class="w-6 h-6 rounded-full bg-surface-dim"></div>
-<span class="text-body-sm">Trần Thị B</span>
-</div>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 4 -->
-<tr class="hover:bg-surface-container transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">QD</div>
-<span class="text-body-md font-bold text-on-surface">Quách Duy Anh</span>
-</div>
-</td>
-<td class="px-lg py-md text-body-md">097 333 8888</td>
-<td class="px-lg py-md text-body-md text-outline">duyanh.q@techhub.com</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#10B981]/10 text-[#10B981] uppercase tracking-wide">VIP</span>
-</td>
-<td class="px-lg py-md text-body-md font-semibold text-primary">820,000,000 ₫</td>
-<td class="px-lg py-md">
-<div class="flex items-center gap-sm">
-<div class="w-6 h-6 rounded-full bg-surface-dim"></div>
-<span class="text-body-sm">Lê Minh C</span>
-</div>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 5 -->
-<tr class="hover:bg-surface-container transition-colors group">
-<td class="px-lg py-md">
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold text-label-md">LM</div>
-<span class="text-body-md font-bold text-on-surface">Lâm Mỹ Hạnh</span>
-</div>
-</td>
-<td class="px-lg py-md text-body-md">094 222 6666</td>
-<td class="px-lg py-md text-body-md text-outline">hanh.lam@retail.vn</td>
-<td class="px-lg py-md">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#F59E0B]/10 text-[#F59E0B] uppercase tracking-wide">Đại lý</span>
-</td>
-<td class="px-lg py-md text-body-md font-semibold text-primary">210,000,000 ₫</td>
-<td class="px-lg py-md">
-<div class="flex items-center gap-sm">
-<div class="w-6 h-6 rounded-full bg-surface-dim"></div>
-<span class="text-body-sm">Nguyễn Văn A</span>
-</div>
-</td>
-<td class="px-lg py-md text-right">
-<button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
-<span class="material-symbols-outlined">more_vert</span>
-</button>
-</td>
-</tr>
-</tbody>
+<tbody class="divide-y divide-outline-variant" id="customer-table-body"></tbody>
 </table>
 </div>
 <!-- Pagination Section -->
@@ -486,4 +355,163 @@
                 }
             });
         });
-        </script></body></html>
+        </script>
+<!-- Create Customer Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity" id="customer-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-lg transform transition-all">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h3 class="text-headline-sm font-bold text-on-surface">Thêm khách hàng mới</h3>
+<button class="text-outline hover:text-on-surface" id="btn-close-modal" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-md" id="form-add-customer">
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Họ và tên *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="cust-name" placeholder="Nhập họ và tên" required="" type="text"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Số điện thoại *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="cust-phone" placeholder="Nhập số điện thoại" required="" type="text"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Email</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="cust-email" placeholder="Nhập email" type="email"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Giá trị ước tính (VNĐ)</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="cust-value" type="number" value="0"/>
+</div>
+<div class="pt-md flex justify-end gap-sm">
+<button class="px-md py-2 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-variant font-medium" id="btn-cancel-modal" type="button">Hủy</button>
+<button class="px-md py-2 bg-primary text-white rounded-lg hover:opacity-90 font-medium" id="btn-submit-modal" type="submit">Lưu khách hàng</button>
+</div>
+</form>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return;
+    const user = session.user;
+
+    const tbody = document.getElementById('customer-table-body');
+    const modal = document.getElementById('customer-modal');
+    const btnAdd = document.getElementById('btn-add-customer');
+    const btnClose = document.getElementById('btn-close-modal');
+    const btnCancel = document.getElementById('btn-cancel-modal');
+    const formAdd = document.getElementById('form-add-customer');
+
+    // Mở / Đóng Modal
+    if(btnAdd) btnAdd.addEventListener('click', () => modal.classList.remove('hidden'));
+    const closeModal = () => {
+        modal.classList.add('hidden');
+        formAdd.reset();
+    };
+    if(btnClose) btnClose.addEventListener('click', closeModal);
+    if(btnCancel) btnCancel.addEventListener('click', closeModal);
+
+    // Format tiền
+    const formatCurrency = (val) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(val || 0);
+
+    // Get Initials
+    const getInitials = (name) => {
+        if(!name) return '??';
+        const parts = name.trim().split(' ');
+        if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+        return name.substring(0,2).toUpperCase();
+    };
+
+    // Load Customers
+    const loadCustomers = async () => {
+        try {
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">Đang tải dữ liệu...</td></tr>';
+            // Lấy danh sách khách hàng cùng với tên người phụ trách từ bảng profiles
+            const { data, error } = await supabase
+                .from('leads')
+                .select(`
+                    *,
+                    profiles!leads_assigned_to_fkey (full_name)
+                `)
+                .order('created_at', { ascending: false });
+                
+            if (error) throw error;
+            
+            tbody.innerHTML = '';
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">Chưa có khách hàng nào.</td></tr>';
+                return;
+            }
+
+            data.forEach(lead => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-surface-container transition-colors group';
+                tr.innerHTML = `
+                    <td class="px-lg py-md">
+                        <div class="flex items-center gap-md">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">${getInitials(lead.name)}</div>
+                            <span class="text-body-md font-bold text-on-surface">${lead.name}</span>
+                        </div>
+                    </td>
+                    <td class="px-lg py-md text-body-md">${lead.phone || ''}</td>
+                    <td class="px-lg py-md text-body-md text-outline">${lead.email || ''}</td>
+                    <td class="px-lg py-md">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#3B82F6]/10 text-[#3B82F6] uppercase tracking-wide">Mới</span>
+                    </td>
+                    <td class="px-lg py-md text-body-md font-semibold text-primary">${formatCurrency(lead.expected_value)}</td>
+                    <td class="px-lg py-md">
+                        <div class="flex items-center gap-sm">
+                            <div class="w-6 h-6 rounded-full bg-surface-dim overflow-hidden flex items-center justify-center text-[10px] text-white">👤</div>
+                            <span class="text-body-sm">${lead.profiles ? lead.profiles.full_name : 'Unknown'}</span>
+                        </div>
+                    </td>
+                    <td class="px-lg py-md text-right">
+                        <button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
+                            <span class="material-symbols-outlined">more_vert</span>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        } catch (err) {
+            console.error('Error loading customers:', err);
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-error">Lỗi tải dữ liệu: ' + err.message + '</td></tr>';
+        }
+    };
+
+    // Add Customer
+    formAdd.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btnSubmit = document.getElementById('btn-submit-modal');
+        btnSubmit.disabled = true;
+        btnSubmit.innerText = 'Đang lưu...';
+
+        try {
+            const newLead = {
+                name: document.getElementById('cust-name').value,
+                phone: document.getElementById('cust-phone').value,
+                email: document.getElementById('cust-email').value,
+                expected_value: document.getElementById('cust-value').value || 0,
+                assigned_to: user.id, // Assign cho chính mình
+                created_by: user.id
+            };
+
+            const { data, error } = await supabase.from('leads').insert([newLead]);
+            if (error) throw error;
+            
+            closeModal();
+            loadCustomers();
+        } catch (err) {
+            alert('Lỗi thêm khách hàng: ' + err.message);
+        } finally {
+            btnSubmit.disabled = false;
+            btnSubmit.innerText = 'Lưu khách hàng';
+        }
+    });
+
+    // Load initial data
+    loadCustomers();
+});
+</script>
+</body></html>
