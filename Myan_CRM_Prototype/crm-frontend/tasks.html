@@ -197,7 +197,7 @@
 <!-- Header Section -->
 <div class="flex justify-between items-center mb-xl">
 <h2 class="font-headline-lg text-headline-lg text-on-surface">Danh sách công việc</h2>
-<button class="bg-[#1E3A8A] text-white px-lg py-md rounded-lg font-headline-sm text-headline-sm flex items-center gap-sm shadow-sm active:scale-[0.98] transition-transform">
+<button class="bg-[#1E3A8A] text-white px-lg py-md rounded-lg font-headline-sm text-headline-sm flex items-center gap-sm shadow-sm active:scale-[0.98] transition-transform" id="btn-add-task">
 <span class="material-symbols-outlined text-[20px]">add</span>
                 + Tạo công việc mới
             </button>
@@ -205,11 +205,11 @@
 <!-- Filter Section -->
 <div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md mb-lg flex flex-wrap items-center justify-between gap-md">
 <div class="flex items-center gap-sm">
-<button class="px-md py-sm bg-primary-fixed-dim text-primary font-label-md text-label-md rounded-lg">Tất cả</button>
-<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg">Của tôi</button>
-<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg">Đang xử lý</button>
-<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg">Đã hoàn thành</button>
-<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg">Quá hạn</button>
+<button class="px-md py-sm bg-primary-fixed-dim text-primary font-label-md text-label-md rounded-lg" id="filter-all">Tất cả</button>
+<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg" id="filter-mine">Của tôi</button>
+<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg" id="filter-progress">Đang xử lý</button>
+<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg" id="filter-done">Đã hoàn thành</button>
+<button class="px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg" id="filter-overdue">Quá hạn</button>
 </div>
 <div class="flex items-center gap-md">
 <div class="flex items-center gap-xs px-md py-sm bg-surface-container rounded-lg cursor-pointer border border-outline-variant hover:border-outline">
@@ -223,128 +223,7 @@
 </div>
 </div>
 <!-- Task List Stack -->
-<div class="space-y-sm">
-<!-- Task Item 1 (Overdue) -->
-<div class="bg-white border border-[#E2E8F0] rounded-lg p-md flex items-center gap-md hover:shadow-sm transition-shadow group">
-<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center cursor-pointer group-hover:border-primary">
-<div class="w-3 h-3 rounded-full bg-primary opacity-0 transition-opacity"></div>
-<button class="ml-2 w-8 h-8 rounded-full bg-error/10 text-error flex items-center justify-center hover:bg-error/20 transition-colors" id="btn-logout" title="Đăng xuất"><span class="material-symbols-outlined text-[18px]">logout</span></button></div>
-<div class="flex-1 flex items-center justify-between">
-<div class="flex flex-col">
-<div class="flex items-center gap-md mb-xs">
-<span class="font-headline-sm text-headline-sm text-on-surface">Cập nhật hồ sơ pháp lý đối tác Alpha</span>
-<span class="px-sm py-0.5 bg-[#F1F5F9] text-[#64748B] font-label-sm text-label-sm rounded border border-[#E2E8F0]">Alpha Tech Solutions</span>
-</div>
-<div class="flex items-center gap-lg">
-<div class="flex items-center gap-xs text-[#EF4444] font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-[14px]">event_busy</span>
-<span>Hết hạn: 20/10</span>
-</div>
-<div class="flex items-center gap-xs px-sm py-0.5 bg-[#FEE2E2] text-[#F43F5E] font-label-sm text-label-sm rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-[#F43F5E]"></span>
-<span>High</span>
-</div>
-</div>
-</div>
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
-<img class="w-full h-full object-cover" data-alt="Close-up profile of a female analyst in a bright corporate office. She wears professional glasses and a blue blazer, representing high efficiency and detail-oriented CRM work. Soft natural lighting from a window highlights her professional demeanor in a minimalist and clean layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk2IIklIypfqrMjfVH1kh7hLDEbsNPCzF-dMAegS0a53LHfErZMBsaryQsFHkn25kLk8wOCucN3UXpr3ZQeZynCc2NEPmbr4znd0dxejkqghg6VEPDy33dUpnX7u-OwWTpkdjbuhVkwD64I7bQ0tc1Nx2Ga28Nb_hT-WhB07xeOQ2ZLO5p5hPCTMBfVv4at2Um7LoEZB_WbdgzthSAYUMnsPt8oei2OKcCnJl04MxM8_QngccI02tuQBEae1YmWouhpGc-Rpr0430"/>
-</div>
-<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
-</div>
-</div>
-</div>
-<!-- Task Item 2 -->
-<div class="bg-white border border-[#E2E8F0] rounded-lg p-md flex items-center gap-md hover:shadow-sm transition-shadow group">
-<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center cursor-pointer group-hover:border-primary">
-<div class="w-3 h-3 rounded-full bg-primary opacity-0"></div>
-</div>
-<div class="flex-1 flex items-center justify-between">
-<div class="flex flex-col">
-<div class="flex items-center gap-md mb-xs">
-<span class="font-headline-sm text-headline-sm text-on-surface">Gửi báo cáo doanh thu quý III</span>
-<span class="px-sm py-0.5 bg-[#F1F5F9] text-[#64748B] font-label-sm text-label-sm rounded border border-[#E2E8F0]">Global Partners</span>
-</div>
-<div class="flex items-center gap-lg">
-<div class="flex items-center gap-xs text-[#64748B] font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-[14px]">calendar_today</span>
-<span>Hạn chót: 30/10</span>
-</div>
-<div class="flex items-center gap-xs px-sm py-0.5 bg-[#FEF9C3] text-[#A16207] font-label-sm text-label-sm rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-[#FACC15]"></span>
-<span>Medium</span>
-</div>
-</div>
-</div>
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
-<img class="w-full h-full object-cover" data-alt="A portrait of a male data analyst focusing on a tablet in a high-tech corporate office. The background shows blurred data charts and a bright, minimalist architecture. He represents systematic CRM management, wearing a grey polo shirt with soft, professional studio-quality lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWxqABD6h_W4vAnzOzbe__hBTpFS1235rzm-HtcMox3vaYYGeZkuQG1bvPUWkvjYJPKOPk_z4Fr0I49cO-mQTizin0yGBPvRTxtyIZJM4HZNcLcl7ojfITIC8opP-OlNkhBOPinNyWaHi3945QWOxGzeO7RYth8YAmw9EJjmBWzfvRvPPHCT0iaPJRmgcmIlAxgoy5KUtMtGopXzLsfSLYGnU-NrmcdOKRvdz6ewfEAbor0lDZHshhv0GqlWFY54haMONUw-u7-GU"/>
-</div>
-<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
-</div>
-</div>
-</div>
-<!-- Task Item 3 -->
-<div class="bg-white border border-[#E2E8F0] rounded-lg p-md flex items-center gap-md hover:shadow-sm transition-shadow group opacity-80">
-<div class="w-6 h-6 rounded-full border-2 border-primary bg-primary flex items-center justify-center cursor-pointer">
-<span class="material-symbols-outlined text-white text-[16px]">check</span>
-</div>
-<div class="flex-1 flex items-center justify-between">
-<div class="flex flex-col">
-<div class="flex items-center gap-md mb-xs">
-<span class="font-headline-sm text-headline-sm text-on-surface-variant line-through">Họp khởi động dự án CRM mới</span>
-<span class="px-sm py-0.5 bg-[#F1F5F9] text-[#64748B] font-label-sm text-label-sm rounded border border-[#E2E8F0]">Internal Team</span>
-</div>
-<div class="flex items-center gap-lg">
-<div class="flex items-center gap-xs text-[#64748B] font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-[14px]">done_all</span>
-<span>Hoàn thành: 22/10</span>
-</div>
-<div class="flex items-center gap-xs px-sm py-0.5 bg-[#F1F5F9] text-[#64748B] font-label-sm text-label-sm rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-[#94A3B8]"></span>
-<span>Low</span>
-</div>
-</div>
-</div>
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
-<img class="w-full h-full object-cover" data-alt="A diverse team of professionals in a minimalist white boardroom with large glass windows. They are collaborating around a sleek white table. The mood is systematic, trustworthy, and productive, characterized by high-key lighting and a professional blue-toned color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ofV1WNL8Mh3eMc_qksgw734RT_r1Yd-xML2co0SOwSvKirmeFPjKa9h9qpv_4OXiAHgoF_DBt2uzHr80E0bQZd_HNZ0VUhovpEqW6MZo3rOb4tYBCroozP9KbiMsulMpENpdCqqEl9hNNNbkA2oBxrmNJIiZspdvPKCFyx1Bm8Uu6_gMFdMgwyqWeu-ZsK3xUnq3BdZ90unutDCt9Auc9ukjkmCWHH95ACQdyKcJYx0EH9Qgdofpqd-re-X5P0rIyd1Z8AaUam0"/>
-</div>
-<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
-</div>
-</div>
-</div>
-<!-- Task Item 4 -->
-<div class="bg-white border border-[#E2E8F0] rounded-lg p-md flex items-center gap-md hover:shadow-sm transition-shadow group">
-<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center cursor-pointer group-hover:border-primary">
-<div class="w-3 h-3 rounded-full bg-primary opacity-0"></div>
-</div>
-<div class="flex-1 flex items-center justify-between">
-<div class="flex flex-col">
-<div class="flex items-center gap-md mb-xs">
-<span class="font-headline-sm text-headline-sm text-on-surface">Kiểm tra hợp đồng dịch vụ Myan Cloud</span>
-<span class="px-sm py-0.5 bg-[#F1F5F9] text-[#64748B] font-label-sm text-label-sm rounded border border-[#E2E8F0]">Myan Cloud Div.</span>
-</div>
-<div class="flex items-center gap-lg">
-<div class="flex items-center gap-xs text-[#64748B] font-body-sm text-body-sm">
-<span class="material-symbols-outlined text-[14px]">calendar_today</span>
-<span>Hạn chót: 25/10</span>
-</div>
-<div class="flex items-center gap-xs px-sm py-0.5 bg-[#FEF9C3] text-[#A16207] font-label-sm text-label-sm rounded-full">
-<span class="w-1.5 h-1.5 rounded-full bg-[#FACC15]"></span>
-<span>Medium</span>
-</div>
-</div>
-</div>
-<div class="flex items-center gap-md">
-<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
-<img class="w-full h-full object-cover" data-alt="A portrait of a professional woman wearing a white business shirt in a sleek, modern architectural space. She is looking confidently towards the camera. The setting is clean, bright, and professional, reflecting the systematic reliability of Myan Corp. High contrast between soft white lighting and deep blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5DlOHUE_gimd5fn0wdilu7-cM7MTp3l9YMrJLftCCXxrnxa7FDYwecPG2fl_TbgLB33vOC8i5VfpkPFcdTRjzFfiG_ELhtPbS-B28YVCIv2goC9k5oUOtvOLPKjK1DpXBr5vm6aJVc9f02ZODmKADaXHTsIyVWDhLXrZWUOH9wKk5aSmvg6ffEvNzdDLsNp9B06zGnMthyUZB7OzBxgbMF3g0BuZ1g634lQ4oWG4N2InocX42ZnLvFjegLc-FO4phRbOcL-UBkg"/>
-</div>
-<button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
-</div>
-</div>
-</div>
-</div>
+<div class="space-y-sm" id="task-list"></div>
 <!-- Pagination (Implicit UX) -->
 <div class="mt-xl flex justify-between items-center text-on-surface-variant">
 <span class="font-body-sm text-body-sm">Hiển thị 1 - 10 trên 45 công việc</span>
@@ -358,6 +237,46 @@
 <button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant hover:bg-surface-container">
 <span class="material-symbols-outlined text-[18px]">chevron_right</span>
 </button>
+</div>
+</div>
+
+<!-- Create Task Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity" id="task-modal">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-lg transform transition-all">
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h3 class="text-headline-sm font-bold text-on-surface">Thêm công việc mới</h3>
+<button class="text-outline hover:text-on-surface" id="btn-close-modal" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-md" id="form-add-task">
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Tên công việc *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="task-title" placeholder="VD: Gọi điện tư vấn" required="" type="text"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Khách hàng liên quan *</label>
+<select class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="task-lead" required="">
+<option value="">-- Chọn khách hàng --</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Hạn chót *</label>
+<input class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="task-due-date" required="" type="datetime-local"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface-variant mb-xs">Mức độ ưu tiên</label>
+<select class="w-full border border-outline-variant rounded-lg p-2 text-body-md focus:ring-2 focus:ring-primary/20" id="task-priority">
+<option value="thap">Thấp</option>
+<option selected="" value="trung_binh">Trung bình</option>
+<option value="cao">Cao</option>
+</select>
+</div>
+<div class="pt-md flex justify-end gap-sm">
+<button class="px-md py-2 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-variant font-medium" id="btn-cancel-modal" type="button">Hủy</button>
+<button class="px-md py-2 bg-primary text-white rounded-lg hover:opacity-90 font-medium" id="btn-submit-modal" type="submit">Lưu công việc</button>
+</div>
+</form>
 </div>
 </div>
 </main>
@@ -387,24 +306,227 @@
         });
     </script>
 <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
+document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+        window.location.href = 'index.html';
+        return;
+    }
+    const user = session.user;
+    
+    // Hook up logout
+    const logoutLinks = document.querySelectorAll('a, button');
+    logoutLinks.forEach(link => {
+        if (link.innerText && link.innerText.includes('Đăng xuất')) {
+            link.addEventListener('click', async (e) => {
+                e.preventDefault();
+                await supabase.auth.signOut();
                 window.location.href = 'index.html';
+            });
+            if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
+            if (link.tagName === 'A') link.setAttribute('href', '#');
+        }
+    });
+
+    // --- TASKS LOGIC ---
+    const taskList = document.getElementById('task-list');
+    let currentFilter = 'all'; 
+
+    const btnAdd = document.getElementById('btn-add-task');
+    const modal = document.getElementById('task-modal');
+    const formAdd = document.getElementById('form-add-task');
+    const btnClose = document.getElementById('btn-close-modal');
+    const btnCancel = document.getElementById('btn-cancel-modal');
+    const leadSelect = document.getElementById('task-lead');
+
+    // Init Modal
+    if(btnAdd) btnAdd.addEventListener('click', () => modal.classList.remove('hidden'));
+    const closeModal = () => {
+        modal.classList.add('hidden');
+        formAdd.reset();
+    };
+    if(btnClose) btnClose.addEventListener('click', closeModal);
+    if(btnCancel) btnCancel.addEventListener('click', closeModal);
+
+    const getInitials = (name) => {
+        if(!name) return '??';
+        const parts = name.trim().split(' ');
+        if(parts.length >= 2) return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+        return name.substring(0,2).toUpperCase();
+    };
+
+    const formatDate = (isoString) => {
+        const d = new Date(isoString);
+        return d.toLocaleDateString('vi-VN') + ' ' + d.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
+    };
+
+    // Load Leads for Dropdown
+    const loadLeadsForDropdown = async () => {
+        const { data } = await supabase.from('leads').select('id, name');
+        if(data && leadSelect) {
+            data.forEach(l => {
+                leadSelect.innerHTML += `<option value="${l.id}">${l.name}</option>`;
+            });
+        }
+    };
+    loadLeadsForDropdown();
+
+    const renderTask = (task) => {
+        const isDone = task.status === 'da_xong';
+        const isOverdue = new Date(task.due_date) < new Date() && !isDone;
+        
+        let priorityColor = 'bg-[#F1F5F9] text-[#64748B]';
+        let priorityDot = 'bg-[#94A3B8]';
+        let priorityText = 'Thấp';
+        
+        if (task.priority === 'cao') {
+            priorityColor = 'bg-[#FEE2E2] text-[#F43F5E]';
+            priorityDot = 'bg-[#F43F5E]';
+            priorityText = 'Cao';
+        } else if (task.priority === 'trung_binh') {
+            priorityColor = 'bg-[#FEF9C3] text-[#A16207]';
+            priorityDot = 'bg-[#FACC15]';
+            priorityText = 'Trung bình';
+        }
+
+        const dateColor = isOverdue ? 'text-[#EF4444]' : 'text-[#64748B]';
+        const dateIcon = isDone ? 'done_all' : (isOverdue ? 'event_busy' : 'calendar_today');
+        const datePrefix = isDone ? 'Hoàn thành:' : (isOverdue ? 'Quá hạn:' : 'Hạn chót:');
+        
+        const checkCircleClass = isDone 
+            ? 'border-primary bg-primary' 
+            : (isOverdue ? 'border-error group-hover:border-error' : 'border-outline-variant group-hover:border-primary');
+            
+        const checkIcon = isDone ? '<span class="material-symbols-outlined text-white text-[16px]">check</span>' : '<div class="w-3 h-3 rounded-full bg-primary opacity-0 transition-opacity"></div>';
+        
+        return `
+        <div class="bg-white border ${isOverdue && !isDone ? 'border-error/50 shadow-[0_0_10px_rgba(239,68,68,0.1)]' : 'border-[#E2E8F0]'} rounded-lg p-md flex items-center gap-md hover:shadow-sm transition-all group ${isDone ? 'opacity-70' : ''}">
+            <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer ${checkCircleClass}" onclick="toggleTaskStatus('${task.id}', '${isDone ? 'chua_lam' : 'da_xong'}')">
+                ${checkIcon}
+            </div>
+            <div class="flex-1 flex items-center justify-between">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-md mb-xs">
+                        <span class="font-headline-sm text-headline-sm ${isDone ? 'text-on-surface-variant line-through' : 'text-on-surface'}">${task.title}</span>
+                        <span class="px-sm py-0.5 bg-[#F1F5F9] text-[#64748B] font-label-sm text-label-sm rounded border border-[#E2E8F0]">${task.leads?.name || 'Không có khách hàng'}</span>
+                    </div>
+                    <div class="flex items-center gap-lg">
+                        <div class="flex items-center gap-xs ${dateColor} font-body-sm text-body-sm">
+                            <span class="material-symbols-outlined text-[14px]">${dateIcon}</span>
+                            <span>${datePrefix} ${formatDate(task.due_date)}</span>
+                        </div>
+                        <div class="flex items-center gap-xs px-sm py-0.5 ${priorityColor} font-label-sm text-label-sm rounded-full">
+                            <span class="w-1.5 h-1.5 rounded-full ${priorityDot}"></span>
+                            <span>${priorityText}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-md">
+                    <div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex justify-center items-center font-bold text-[10px] text-primary" title="${task.profiles?.full_name}">
+                        ${getInitials(task.profiles?.full_name)}
+                    </div>
+                    <button class="material-symbols-outlined text-outline hover:text-primary">more_vert</button>
+                </div>
+            </div>
+        </div>
+        `;
+    };
+
+    const loadTasks = async () => {
+        try {
+            taskList.innerHTML = '<div class="text-center py-10 text-outline">Đang tải công việc...</div>';
+            
+            let query = supabase.from('tasks').select('*, leads(name), profiles(full_name)').order('due_date', { ascending: true });
+            
+            if (currentFilter === 'mine') {
+                query = query.eq('assigned_to', user.id);
+            } else if (currentFilter === 'progress') {
+                query = query.in('status', ['chua_lam', 'dang_lam']);
+            } else if (currentFilter === 'done') {
+                query = query.eq('status', 'da_xong');
+            } else if (currentFilter === 'overdue') {
+                const now = new Date().toISOString();
+                query = query.lt('due_date', now).neq('status', 'da_xong');
             }
             
-            // Hook up logout
-            const logoutLinks = document.querySelectorAll('a, button');
-            logoutLinks.forEach(link => {
-                if (link.innerText && link.innerText.includes('Đăng xuất')) {
-                    link.addEventListener('click', async (e) => {
-                        e.preventDefault();
-                        await supabase.auth.signOut();
-                        window.location.href = 'index.html';
-                    });
-                    if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
-                    if (link.tagName === 'A') link.setAttribute('href', '#');
-                }
+            const { data, error } = await query;
+            if (error) throw error;
+            
+            if (data.length === 0) {
+                taskList.innerHTML = '<div class="text-center py-10 text-outline">Không có công việc nào.</div>';
+                return;
+            }
+            
+            taskList.innerHTML = data.map(t => renderTask(t)).join('');
+            
+        } catch (err) {
+            console.error(err);
+            taskList.innerHTML = '<div class="text-center py-10 text-error">Lỗi tải dữ liệu.</div>';
+        }
+    };
+
+    window.toggleTaskStatus = async (taskId, newStatus) => {
+        try {
+            const { error } = await supabase.from('tasks').update({ status: newStatus }).eq('id', taskId);
+            if(error) throw error;
+            loadTasks();
+        } catch(err) {
+            alert('Lỗi cập nhật: ' + err.message);
+        }
+    };
+
+    // Filters UI
+    const filterIds = ['all', 'mine', 'progress', 'done', 'overdue'];
+    filterIds.forEach(id => {
+        const btn = document.getElementById(`filter-${id}`);
+        if(btn) {
+            btn.addEventListener('click', () => {
+                // reset styling
+                filterIds.forEach(fid => {
+                    const b = document.getElementById(`filter-${fid}`);
+                    if(b) {
+                        b.className = "px-md py-sm text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg";
+                    }
+                });
+                // active styling
+                btn.className = "px-md py-sm bg-primary-fixed-dim text-primary font-label-md text-label-md rounded-lg";
+                currentFilter = id;
+                loadTasks();
             });
-        });
-        </script></body></html>
+        }
+    });
+
+    // Add Task
+    formAdd.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btnSubmit = document.getElementById('btn-submit-modal');
+        btnSubmit.disabled = true;
+        btnSubmit.innerText = 'Đang lưu...';
+
+        try {
+            const newTask = {
+                title: document.getElementById('task-title').value,
+                lead_id: document.getElementById('task-lead').value,
+                due_date: document.getElementById('task-due-date').value,
+                priority: document.getElementById('task-priority').value,
+                assigned_to: user.id,
+                created_by: user.id,
+                status: 'chua_lam'
+            };
+
+            const { error } = await supabase.from('tasks').insert([newTask]);
+            if (error) throw error;
+            
+            closeModal();
+            loadTasks();
+        } catch (err) {
+            alert('Lỗi tạo công việc: ' + err.message);
+        } finally {
+            btnSubmit.disabled = false;
+            btnSubmit.innerText = 'Lưu công việc';
+        }
+    });
+
+    loadTasks();
+});
+</script></body></html>
