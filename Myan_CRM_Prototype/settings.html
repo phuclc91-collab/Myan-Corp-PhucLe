@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cài đặt - Myan Corp CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#54647a",
+                    "on-background": "#1a1b21",
+                    "tertiary-fixed-dim": "#ffb691",
+                    "surface-container-low": "#f4f3fa",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "inverse-on-surface": "#f1f0f7",
+                    "primary-container": "#1e3a8a",
+                    "background": "#faf8ff",
+                    "on-primary-container": "#90a8ff",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#dce1ff",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e3e1e9",
+                    "surface-container-high": "#e9e7ef",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "surface-bright": "#faf8ff",
+                    "tertiary-fixed": "#ffdbcb",
+                    "inverse-surface": "#2f3036",
+                    "secondary": "#505f76",
+                    "outline-variant": "#c5c5d3",
+                    "surface-tint": "#4059aa",
+                    "on-tertiary-fixed": "#341100",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#4b1c00",
+                    "on-surface-variant": "#444651",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "surface": "#faf8ff",
+                    "on-primary-fixed-variant": "#264191",
+                    "inverse-primary": "#b6c4ff",
+                    "on-error": "#ffffff",
+                    "primary": "#00236f",
+                    "outline": "#757682",
+                    "on-surface": "#1a1b21",
+                    "on-primary-fixed": "#00164e",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-secondary-fixed": "#0b1c30",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#6e2c00",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#d0e1fb",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#f39461",
+                    "surface-variant": "#e3e1e9",
+                    "surface-dim": "#dad9e1",
+                    "surface-container": "#eeedf4",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "md": "16px",
+                    "2xl": "48px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .active-nav-bg { background-color: #264191; } /* on-primary-fixed-variant mapping */
+        
+        /* Custom Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 36px;
+            height: 20px;
+        }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #CBD5E1;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px; width: 14px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: #1E3A8A; }
+        input:checked + .slider:before { transform: translateX(16px); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-background min-h-screen flex">
+<!-- Sidebar Navigation Shell -->
+<aside class="w-[240px] h-screen fixed left-0 top-0 bg-primary-container text-on-primary-container flex flex-col py-md border-r border-outline-variant z-20">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-primary-container">Myan Corp</h1>
+<p class="text-[10px] opacity-70 tracking-widest uppercase">Enterprise CRM</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items Mapping from JSON -->
+<a class="text-secondary-fixed hover:bg-on-primary-fixed-variant/50 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<a class="text-secondary-fixed hover:bg-on-primary-fixed-variant/50 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+<span class="font-body-md text-body-md">Customers</span>
+</a>
+<a class="text-secondary-fixed hover:bg-on-primary-fixed-variant/50 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mr-3">trending_up</span>
+<span class="font-body-md text-body-md">Sales Opportunities</span>
+</a>
+<a class="text-secondary-fixed hover:bg-on-primary-fixed-variant/50 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mr-3">check_circle</span>
+<span class="font-body-md text-body-md">Tasks</span>
+</a>
+<a class="text-secondary-fixed hover:bg-on-primary-fixed-variant/50 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="font-body-md text-body-md">Payments</span>
+</a>
+<a class="bg-on-primary-fixed-variant text-white rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors cursor-pointer active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-lg pt-md border-t border-white/10 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-on-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">help</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-semibold truncate">Hỗ trợ kỹ thuật</p>
+<p class="text-[10px] opacity-60">24/7 Enterprise</p>
+</div>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="flex-1 ml-[240px] flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="h-16 w-full sticky top-0 z-10 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-lg">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Tìm kiếm nhanh..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors cursor-pointer duration-150">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer duration-150">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface">Admin User</p>
+<p class="font-label-sm text-label-sm text-outline">Quản trị viên hệ thống</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="A professional headshot of a corporate executive in a modern business suit, smiling confidently. The lighting is soft and professional with a neutral gray studio background, adhering to a minimalist and high-end enterprise aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqh5Kg9vM82zm6wSysuQzMM_vyHZN1cq7DsV2hb2t7rANR0juxpeqfToTr1Uj58kHdRMeZRujyeUv01UnT18X-P0E3o1_JEx3oPCMOM3wBmPYY1lTV-RszdHNAueI00QLRtgLNefGyH4y-31oklOcopsrmONQ0V52TSSqUyykfe7hIWyGxYH2rNHKGGyX6GWt04eO3-jPP7Ivj5iCHAH7rfZ1vzgP9XDpU82zTCs38Igi3HXGrl0yjCzEYhJQRVx-0_G14zPvnZDU"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area (2 Columns) -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Sub-Navigation (Left Column) -->
+<aside class="w-72 bg-white border-r border-outline-variant p-lg flex flex-col gap-1">
+<h2 class="font-headline-sm text-headline-sm mb-lg px-2">Cài đặt hệ thống</h2>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-body-md text-body-md">Hồ sơ cá nhân</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/5 text-primary border-l-4 border-primary font-semibold transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">manage_accounts</span>
+<span class="font-body-md text-body-md">Quản lý tài khoản</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+<span class="font-body-md text-body-md">Vai trò &amp; Phân quyền</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">category</span>
+<span class="font-body-md text-body-md">Tuỳ chỉnh danh mục</span>
+</a>
+<div class="mt-auto p-4 bg-surface-variant/30 rounded-xl border border-outline-variant/30">
+<p class="text-[11px] font-bold text-outline-variant uppercase tracking-widest mb-2">Dung lượng lưu trữ</p>
+<div class="w-full bg-outline-variant/30 h-1.5 rounded-full overflow-hidden mb-2">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant">7.2GB / 10GB (72%)</p>
+</div>
+</aside>
+<!-- Detailed Content (Right Column) -->
+<section class="flex-1 overflow-y-auto p-lg">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-center mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background">Danh sách nhân sự</h2>
+<p class="font-body-sm text-body-sm text-outline mt-1">Quản lý và cấp quyền truy cập cho nhân viên trong tổ chức của bạn.</p>
+</div>
+<button class="bg-primary text-white px-lg py-2.5 rounded-lg font-label-md flex items-center gap-2 hover:bg-primary-container transition-transform active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                            Thêm nhân sự
+                        </button>
+</div>
+<!-- Filter Bar -->
+<div class="bg-white border border-outline-variant rounded-lg p-md mb-lg flex gap-4 items-center">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">filter_list</span>
+<input class="w-full border border-outline-variant rounded-lg pl-10 pr-4 py-2 text-body-sm focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Lọc theo tên hoặc email..." type="text"/>
+</div>
+<select class="border border-outline-variant rounded-lg py-2 px-4 text-body-sm bg-white focus:ring-1 focus:ring-primary">
+<option>Tất cả vai trò</option>
+<option>Admin</option>
+<option>Manager</option>
+<option>Sales</option>
+</select>
+<select class="border border-outline-variant rounded-lg py-2 px-4 text-body-sm bg-white focus:ring-1 focus:ring-primary">
+<option>Tất cả nhóm</option>
+<option>Miền Bắc</option>
+<option>Miền Nam</option>
+<option>Global Sales</option>
+</select>
+</div>
+<!-- Data Table -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead class="bg-[#F8FAFC] border-b border-outline-variant">
+<tr>
+<th class="px-lg py-4 font-label-md text-label-md text-outline uppercase tracking-wider">Họ Tên</th>
+<th class="px-lg py-4 font-label-md text-label-md text-outline uppercase tracking-wider">Email</th>
+<th class="px-lg py-4 font-label-md text-label-md text-outline uppercase tracking-wider">Vai trò</th>
+<th class="px-lg py-4 font-label-md text-label-md text-outline uppercase tracking-wider">Thuộc Nhóm</th>
+<th class="px-lg py-4 font-label-md text-label-md text-outline uppercase tracking-wider text-center">Trạng thái</th>
+<th class="px-lg py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Close-up portrait of a professional woman with glasses, wearing a sleek black blazer. The lighting is crisp and bright, characteristic of a high-end corporate office setting. The style is minimalist with a light-toned, slightly blurred background to emphasize professional clarity and trustworthiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkzUQodMuYgvb3rGRdfVMos24t28u0VoBtrlLMtrCo1R5CsTcpa54im-zjFPfCYKefz7IyFgCzcvyYkf-evUyle951Zo6mM4fbjI2E4y0ZvE4sLvojXdC3rqAXuHEJCw9ZVR2hwPmW27xhHzxgMdAg-lkGiwNoOA5JDa5fEWnDEjLPcJD-Lid4q893VEbbKTEUlXxyfENBFTpgQFYeQirj8OuGpSmxtUkCm5o47p5BISA5RHkY_zjFwWX6jePpnpZCrLPGHNOkwbQ"/>
+<div>
+<p class="font-body-md font-semibold text-on-background">Nguyễn Văn An</p>
+<p class="text-[11px] text-outline">ID: MC-2093</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-on-surface-variant">an.nguyen@myancorp.vn</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-32 cursor-pointer">
+<option selected="">Admin</option>
+<option>Manager</option>
+<option>Sales</option>
+</select>
+</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-36 cursor-pointer">
+<option selected="">Miền Bắc</option>
+<option>Miền Nam</option>
+<option>Global Sales</option>
+</select>
+</td>
+<td class="px-lg py-4 text-center">
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Portrait of a young male professional in a clean white button-down shirt, looking directly into the camera with a helpful expression. The background is a brightly lit, modern open-office space with soft geometric lines. The image aesthetic is stable, clean, and highly professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ1D1IBIlAK2xdv0wOfzGJH-ZodXDFlr6XHKgAP-iURbebOWtnihKf0ZHvEt14-W0X4iNfYZnpdZc6KSWRCprhlwgAz3urMHoMDah-exDQGkamO0fZ2LuktNlTuv0c4iOV3bp4n0DF5_K45Y5h3_hOBLsMm16WKsADZXYQue5Ttr2YYqgqgPkATsFcck_6IWlTRV5sAHgCe0OeGYGv5EYU26PU1EFWGNs6uLiPe84mduLx2uJ3c-mVBW-gQMoUmgSmOJTLYPKo7Ao"/>
+<div>
+<p class="font-body-md font-semibold text-on-background">Lê Thị Mai</p>
+<p class="text-[11px] text-outline">ID: MC-2105</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-on-surface-variant">mai.le@myancorp.vn</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-32 cursor-pointer">
+<option>Admin</option>
+<option selected="">Manager</option>
+<option>Sales</option>
+</select>
+</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-36 cursor-pointer">
+<option>Miền Bắc</option>
+<option selected="">Miền Nam</option>
+<option>Global Sales</option>
+</select>
+</td>
+<td class="px-lg py-4 text-center">
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A sophisticated business professional posing against a minimalist white wall. The subject wears a charcoal grey tailored suit. The lighting is directional but soft, creating subtle tonal shifts and depth. This professional headshot captures a high level of systematic efficiency and enterprise reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlfpJuOBBlF1hXtDT90mi8bLyLlOqANErX9le02YO17uMk7lWswYlC-eDGc62PSPdmouQ_nEzr5ctNJxC76gkr3pOS1QTxE5LZ9eVP9uCE2sOKDMbk2ShOnwpPIq2k_P90DEDRh1kkArRRlxEAH6ZwDJ8p5w1HLguX72axyiYp-txJQSbrRYs1X2dyv_8OO28GS9hNSjUNQCUi7_-X0r3NXpeZjW_oTwJO84uWVfJfWoe3ID3Wpg5wqzC7raWLSjrBbRNq0eoW70o"/>
+<div>
+<p class="font-body-md font-semibold text-on-background">Trần Minh Hoàng</p>
+<p class="text-[11px] text-outline">ID: MC-2144</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-on-surface-variant">hoang.tran@myancorp.vn</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-32 cursor-pointer">
+<option>Admin</option>
+<option>Manager</option>
+<option selected="">Sales</option>
+</select>
+</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-36 cursor-pointer">
+<option>Miền Bắc</option>
+<option>Miền Nam</option>
+<option selected="">Global Sales</option>
+</select>
+</td>
+<td class="px-lg py-4 text-center">
+<label class="switch">
+<input type="checkbox"/>
+<span class="slider"></span>
+</label>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-lg py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Corporate staff portrait of a senior professional man with white hair, exuding years of experience and systematic expertise. He is wearing a dark blue tie and light blue shirt. The background is a clean, bright corporate lobby with soft bokeh, reflecting the Myan Corp brand identity of trust and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeKE-rHSURCiJk3cReLiTDIUnGWwMpyGF1VkWKWpmda9DcFY-m4nqeNMvAZNxBoaNVPBr0FpQnT6D_l3r8o3_1DAtcUmgkGWyhyc9IP-uJljKu3ZXC5AyieBM2FkO--SJvjCLYhhd6FPZRRCmFdWyjS77oeUFMY8dESJ2WTcIJM5yG_o60x9jaCqNT2qnEzSCYjhgy9O1C-yK7tMacF-29bpkHw6YBFdqJnBtn0ZQKZPBH1N5JhxyfHAoj4To7G6hnJCrodCZO048"/>
+<div>
+<p class="font-body-md font-semibold text-on-background">Phạm Thu Hà</p>
+<p class="text-[11px] text-outline">ID: MC-2201</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-on-surface-variant">ha.pham@myancorp.vn</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-32 cursor-pointer">
+<option>Admin</option>
+<option>Manager</option>
+<option selected="">Sales</option>
+</select>
+</td>
+<td class="px-lg py-4">
+<select class="bg-surface-container-low border-none rounded-lg text-body-sm py-1.5 px-3 focus:ring-1 focus:ring-primary w-36 cursor-pointer">
+<option selected="">Miền Bắc</option>
+<option>Miền Nam</option>
+<option>Global Sales</option>
+</select>
+</td>
+<td class="px-lg py-4 text-center">
+<label class="switch">
+<input checked="" type="checkbox"/>
+<span class="slider"></span>
+</label>
+</td>
+<td class="px-lg py-4 text-right">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-lg py-4 bg-[#F8FAFC] border-t border-outline-variant flex justify-between items-center">
+<p class="text-body-sm text-on-surface-variant">Hiển thị 1 - 4 trên tổng số 28 nhân sự</p>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-lg border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-label-md">1</button>
+<button class="w-8 h-8 rounded-lg border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container transition-all">2</button>
+<button class="w-8 h-8 rounded-lg border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container transition-all">3</button>
+<button class="w-8 h-8 rounded-lg border border-outline-variant flex items-center justify-center text-outline hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'SELECT' && e.target.tagName !== 'INPUT' && !e.target.closest('button')) {
+                    // Action for row selection or navigation
+                    console.log('Row clicked:', row.querySelector('.font-semibold').textContent);
+                }
+            });
+        });
+
+        // Simple scale effect on buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>
