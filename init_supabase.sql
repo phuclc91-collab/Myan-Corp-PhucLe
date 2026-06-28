@@ -205,10 +205,10 @@ INSERT INTO pipeline_stages (id, name, probability, "order") VALUES
 ('55555555-5555-5555-5555-555555555555', 'Thành công', 100, 5);
 
 INSERT INTO lead_tags (id, name, color) VALUES
-('aaaa1111-aaaa-1111-aaaa-111111111111', 'VIP', '#10B981'),
-('bbbb2222-bbbb-2222-bbbb-222222222222', 'Đại lý', '#F59E0B'),
-('cccc3333-cccc-3333-cccc-333333333333', 'Khách lẻ', '#3B82F6');
+('66666666-6666-6666-6666-666666666666', 'VIP', '#10B981'),
+('77777777-7777-7777-7777-777777777777', 'Đại lý', '#F59E0B'),
+('88888888-8888-8888-8888-888888888888', 'Khách lẻ', '#3B82F6');
 
 INSERT INTO teams (id, name) VALUES 
-('team1111-team-1111-team-111111111111', 'Phòng Bán Hàng Doanh Nghiệp (B2B)'),
-('team2222-team-2222-team-222222222222', 'Phòng Bán Hàng Cá Nhân (B2C)');
+('99999999-9999-9999-9999-999999999999', 'Phòng Bán Hàng Doanh Nghiệp (B2B)'),
+('12345678-1234-1234-1234-123456789012', 'Phòng Bán Hàng Cá Nhân (B2C)');
