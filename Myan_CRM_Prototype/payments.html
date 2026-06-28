@@ -114,7 +114,7 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
 <body class="flex min-h-screen overflow-hidden">
 <!-- Sidebar: Myan Corp CRM Branding -->
 <!-- Content & Style mapped from JSON "SideNavBar" -->
@@ -510,4 +510,25 @@
             }
         });
     </script>
-</body></html>
+<script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+                window.location.href = 'index.html';
+            }
+            
+            // Hook up logout
+            const logoutLinks = document.querySelectorAll('a, button');
+            logoutLinks.forEach(link => {
+                if (link.innerText && link.innerText.includes('Đăng xuất')) {
+                    link.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        await supabase.auth.signOut();
+                        window.location.href = 'index.html';
+                    });
+                    if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
+                    if (link.tagName === 'A') link.setAttribute('href', '#');
+                }
+            });
+        });
+        </script></body></html>

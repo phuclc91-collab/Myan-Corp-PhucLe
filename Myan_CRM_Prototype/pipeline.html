@@ -133,7 +133,7 @@
             cursor: grabbing;
         }
     </style>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
 <body class="bg-[#F8FAFC] text-on-background">
 <!-- Side Navigation -->
 <aside class="fixed left-0 top-0 h-screen w-[280px] bg-primary dark:bg-primary-container flex flex-col py-lg z-50">
@@ -392,4 +392,25 @@
             document.documentElement.classList.toggle('dark');
         };
     </script>
-</body></html>
+<script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+                window.location.href = 'index.html';
+            }
+            
+            // Hook up logout
+            const logoutLinks = document.querySelectorAll('a, button');
+            logoutLinks.forEach(link => {
+                if (link.innerText && link.innerText.includes('Đăng xuất')) {
+                    link.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        await supabase.auth.signOut();
+                        window.location.href = 'index.html';
+                    });
+                    if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
+                    if (link.tagName === 'A') link.setAttribute('href', '#');
+                }
+            });
+        });
+        </script></body></html>

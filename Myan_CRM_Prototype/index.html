@@ -112,7 +112,7 @@
         .bg-login-cover { background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAABtAzfJIoNL4982EqxiUgjIgSRY5TOt7KV3tqWtt7s26bBZ--8vUTOr1mSmIaJbvITRx5m7ZNwmHEZtmSLOXH0kBXpE60C187Cn0pQ9oLEMUsSUBJwJ_84RFV0DfAZfn9YEPMoDuSqgKO5P8KFydAReC1mS3OynOO4vKLeR6OBUBXDTbu9OBsUqQnnGHQtFv2RjJUnzLfIXkhqVA2mQMdyq8h0pWfNsFNVbCGoXVGLNLSj247XLLjbgdWoHBn7zn0hVRlTRaq3-c'); background-size: cover; background-position: center; }
         input:focus { border-color: #1e3a8a !important; ring: 3px solid rgba(30, 58, 138, 0.1); }
     </style>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
 <body class="min-h-screen flex items-center justify-center">
 <!-- Main Container: Split Screen Desktop, Full Width Mobile -->
 <div class="flex w-full min-h-screen overflow-hidden">
@@ -195,4 +195,31 @@
 </div>
 </div>
 </div>
-<script></script></body></html>
+<script></script><script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            if(form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const btn = form.querySelector('button[type="submit"]');
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Đang xử lý...';
+                    
+                    const { data, error } = await supabase.auth.signInWithPassword({
+                        email: email,
+                        password: password,
+                    });
+                    
+                    if (error) {
+                        alert('Lỗi đăng nhập: ' + error.message);
+                        btn.innerText = originalText;
+                    } else {
+                        btn.innerText = 'Đăng nhập thành công!';
+                        setTimeout(() => { window.location.href = 'dashboard.html'; }, 500);
+                    }
+                });
+            }
+        });
+        </script></body></html>

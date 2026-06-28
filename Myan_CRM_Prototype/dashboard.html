@@ -121,7 +121,7 @@
             transition: height 1s ease-out;
         }
     </style>
-</head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
 <body class="bg-[#F8FAFC] text-on-background">
 <!-- SideNavBar Anchor -->
 <aside class="fixed left-0 top-0 h-full w-[280px] bg-primary-container text-white flex flex-col p-lg gap-sm z-50">
@@ -478,4 +478,25 @@
             timeFilter.classList.toggle('bg-surface-container');
         });
     </script>
-</body></html>
+<script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) {
+                window.location.href = 'index.html';
+            }
+            
+            // Hook up logout
+            const logoutLinks = document.querySelectorAll('a, button');
+            logoutLinks.forEach(link => {
+                if (link.innerText && link.innerText.includes('Đăng xuất')) {
+                    link.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        await supabase.auth.signOut();
+                        window.location.href = 'index.html';
+                    });
+                    if (link.tagName === 'BUTTON') link.removeAttribute('onclick');
+                    if (link.tagName === 'A') link.setAttribute('href', '#');
+                }
+            });
+        });
+        </script></body></html>
