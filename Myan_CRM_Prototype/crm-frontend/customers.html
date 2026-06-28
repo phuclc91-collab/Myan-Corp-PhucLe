@@ -114,7 +114,7 @@
         .active-nav { background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; color: #FFFFFF; }
         .custom-shadow { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script></head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script></head>
 <body class="text-on-surface">
 <!-- SideNavBar (Execution from JSON) -->
 <aside class="sidebar-fixed flex flex-col p-lg gap-sm">
@@ -203,10 +203,10 @@
 <p class="text-body-md text-outline">Quản lý và theo dõi các cơ hội kinh doanh mới</p>
 </div>
 <div class="flex gap-sm">
-<button class="flex items-center gap-sm px-lg py-2.5 bg-white border border-outline-variant text-primary font-semibold rounded-lg hover:bg-surface-variant transition-all">
+<button class="flex items-center gap-sm px-lg py-2.5 bg-white border border-outline-variant text-primary font-semibold rounded-lg hover:bg-surface-variant transition-all" id="btn-import-csv">
 <span class="material-symbols-outlined text-[20px]">file_download</span>
 <span>Import CSV</span>
-</button>
+</button><input accept=".csv" class="hidden" id="csv-upload" type="file"/>
 <button class="flex items-center gap-sm px-lg py-2.5 bg-primary-container text-white font-semibold rounded-lg hover:opacity-90 transition-all custom-shadow" id="btn-add-customer">
 <span class="material-symbols-outlined text-[20px]">add</span>
 <span>Thêm khách hàng</span>
@@ -219,10 +219,10 @@
 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline">
 <span class="material-symbols-outlined text-[20px]">search</span>
 </span>
-<input class="w-full border border-outline-variant rounded-lg py-2.5 pl-10 pr-4 text-body-md focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all" placeholder="Tìm theo tên, SĐT, Email" type="text"/>
+<input class="w-full border border-outline-variant rounded-lg py-2.5 pl-10 pr-4 text-body-md focus:ring-2 focus:ring-primary/10 focus:border-primary transition-all" id="search-input" placeholder="Tìm theo tên, SĐT, Email" type="text"/>
 </div>
 <div class="flex items-center gap-md flex-wrap">
-<div class="flex items-center gap-sm">
+<div class="flex items-center gap-sm hidden">
 <span class="text-label-md text-outline">Phân khúc:</span>
 <select class="border border-outline-variant rounded-lg py-2 px-md text-body-md focus:ring-2 focus:ring-primary/10 focus:border-primary bg-white min-w-[140px]">
 <option>Tất cả</option>
@@ -233,7 +233,7 @@
 </div>
 <div class="flex items-center gap-sm">
 <span class="text-label-md text-outline">Người phụ trách:</span>
-<select class="border border-outline-variant rounded-lg py-2 px-md text-body-md focus:ring-2 focus:ring-primary/10 focus:border-primary bg-white min-w-[180px]">
+<select class="border border-outline-variant rounded-lg py-2 px-md text-body-md focus:ring-2 focus:ring-primary/10 focus:border-primary bg-white min-w-[180px]" id="filter-staff">
 <option>Tất cả nhân viên</option>
 <option>Nguyễn Văn A</option>
 <option>Trần Thị B</option>
@@ -266,19 +266,19 @@
 </div>
 <!-- Pagination Section -->
 <div class="p-lg bg-surface-container-lowest border-t border-outline-variant flex items-center justify-between">
-<p class="text-body-sm text-outline">Hiển thị 1 - 5 trong tổng số 124 khách hàng</p>
+<p class="text-body-sm text-outline" id="page-info">Hiển thị 1 - 5 trong tổng số 124 khách hàng</p>
 <div class="flex items-center gap-sm">
-<button class="p-2 border border-outline-variant rounded-lg text-outline hover:bg-surface-variant disabled:opacity-50 transition-colors" disabled="">
+<button class="p-2 border border-outline-variant rounded-lg text-outline hover:bg-surface-variant disabled:opacity-50 transition-colors" disabled="" id="btn-prev-page">
 <span class="material-symbols-outlined">chevron_left</span>
 </button>
-<div class="flex items-center">
+<div class="flex items-center" id="page-numbers">
 <button class="w-10 h-10 rounded-lg bg-primary text-white font-bold text-body-sm">1</button>
 <button class="w-10 h-10 rounded-lg hover:bg-surface-variant text-body-sm">2</button>
 <button class="w-10 h-10 rounded-lg hover:bg-surface-variant text-body-sm">3</button>
 <span class="px-2 text-outline">...</span>
 <button class="w-10 h-10 rounded-lg hover:bg-surface-variant text-body-sm">25</button>
 </div>
-<button class="p-2 border border-outline-variant rounded-lg text-outline hover:bg-surface-variant transition-colors">
+<button class="p-2 border border-outline-variant rounded-lg text-outline hover:bg-surface-variant transition-colors" id="btn-next-page">
 <span class="material-symbols-outlined">chevron_right</span>
 </button>
 </div>
@@ -401,6 +401,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const btnClose = document.getElementById('btn-close-modal');
     const btnCancel = document.getElementById('btn-cancel-modal');
     const formAdd = document.getElementById('form-add-customer');
+    
+    // Pagination & Filter States
+    let currentPage = 1;
+    let pageSize = 50;
+    let totalCount = 0;
+    let searchQuery = '';
+    let staffFilter = '';
 
     // Mở / Đóng Modal
     if(btnAdd) btnAdd.addEventListener('click', () => modal.classList.remove('hidden'));
@@ -422,67 +429,202 @@ document.addEventListener('DOMContentLoaded', async () => {
         return name.substring(0,2).toUpperCase();
     };
 
+    // Load Staffs into dropdown
+    const loadStaffs = async () => {
+        const sel = document.getElementById('filter-staff');
+        if(!sel) return;
+        const { data } = await supabase.from('profiles').select('id, full_name, role');
+        if(data) {
+            sel.innerHTML = '<option value="">Tất cả nhân viên</option>';
+            data.forEach(p => {
+                sel.innerHTML += `<option value="${p.id}">${p.full_name} (${p.role})</option>`;
+            });
+        }
+    };
+    loadStaffs();
+
     // Load Customers
     const loadCustomers = async () => {
         try {
             tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">Đang tải dữ liệu...</td></tr>';
-            // Lấy danh sách khách hàng cùng với tên người phụ trách từ bảng profiles
-            const { data, error } = await supabase
-                .from('leads')
-                .select(`
-                    *,
-                    profiles!leads_assigned_to_fkey (full_name)
-                `)
-                .order('created_at', { ascending: false });
-                
+            
+            let query = supabase.from('leads').select(`*, profiles!leads_assigned_to_fkey (full_name)`, { count: 'exact' });
+            
+            // Filters
+            if(searchQuery) {
+                query = query.or(`name.ilike.%${searchQuery}%,phone.ilike.%${searchQuery}%,email.ilike.%${searchQuery}%`);
+            }
+            if(staffFilter) {
+                query = query.eq('assigned_to', staffFilter);
+            }
+            
+            // Pagination
+            const from = (currentPage - 1) * pageSize;
+            const to = from + pageSize - 1;
+            
+            query = query.order('created_at', { ascending: false }).range(from, to);
+
+            const { data, count, error } = await query;
             if (error) throw error;
+            
+            totalCount = count;
             
             tbody.innerHTML = '';
             if (data.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">Chưa có khách hàng nào.</td></tr>';
-                return;
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4">Không tìm thấy khách hàng nào.</td></tr>';
+            } else {
+                data.forEach(lead => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-surface-container transition-colors group';
+                    tr.innerHTML = `
+                        <td class="px-lg py-md">
+                            <div class="flex items-center gap-md">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">${getInitials(lead.name)}</div>
+                                <span class="text-body-md font-bold text-on-surface">${lead.name}</span>
+                            </div>
+                        </td>
+                        <td class="px-lg py-md text-body-md">${lead.phone || ''}</td>
+                        <td class="px-lg py-md text-body-md text-outline">${lead.email || ''}</td>
+                        <td class="px-lg py-md">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#3B82F6]/10 text-[#3B82F6] uppercase tracking-wide">Mới</span>
+                        </td>
+                        <td class="px-lg py-md text-body-md font-semibold text-primary">${formatCurrency(lead.expected_value)}</td>
+                        <td class="px-lg py-md">
+                            <div class="flex items-center gap-sm">
+                                <div class="w-6 h-6 rounded-full bg-surface-dim overflow-hidden flex items-center justify-center text-[10px] text-white">👤</div>
+                                <span class="text-body-sm">${lead.profiles ? lead.profiles.full_name : 'Unknown'}</span>
+                            </div>
+                        </td>
+                        <td class="px-lg py-md text-right">
+                            <button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
+                                <span class="material-symbols-outlined">more_vert</span>
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
             }
-
-            data.forEach(lead => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-surface-container transition-colors group';
-                tr.innerHTML = `
-                    <td class="px-lg py-md">
-                        <div class="flex items-center gap-md">
-                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-label-md">${getInitials(lead.name)}</div>
-                            <span class="text-body-md font-bold text-on-surface">${lead.name}</span>
-                        </div>
-                    </td>
-                    <td class="px-lg py-md text-body-md">${lead.phone || ''}</td>
-                    <td class="px-lg py-md text-body-md text-outline">${lead.email || ''}</td>
-                    <td class="px-lg py-md">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#3B82F6]/10 text-[#3B82F6] uppercase tracking-wide">Mới</span>
-                    </td>
-                    <td class="px-lg py-md text-body-md font-semibold text-primary">${formatCurrency(lead.expected_value)}</td>
-                    <td class="px-lg py-md">
-                        <div class="flex items-center gap-sm">
-                            <div class="w-6 h-6 rounded-full bg-surface-dim overflow-hidden flex items-center justify-center text-[10px] text-white">👤</div>
-                            <span class="text-body-sm">${lead.profiles ? lead.profiles.full_name : 'Unknown'}</span>
-                        </div>
-                    </td>
-                    <td class="px-lg py-md text-right">
-                        <button class="p-1 hover:bg-outline-variant rounded transition-colors text-outline">
-                            <span class="material-symbols-outlined">more_vert</span>
-                        </button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
+            
+            updatePaginationUI(from, data.length);
         } catch (err) {
             console.error('Error loading customers:', err);
             tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-error">Lỗi tải dữ liệu: ' + err.message + '</td></tr>';
         }
     };
+    
+    // Render Pagination
+    const updatePaginationUI = (from, currentCount) => {
+        const info = document.getElementById('page-info');
+        const btnPrev = document.getElementById('btn-prev-page');
+        const btnNext = document.getElementById('btn-next-page');
+        const pageNums = document.getElementById('page-numbers');
+        
+        if(info) {
+            info.innerText = `Hiển thị ${totalCount === 0 ? 0 : from + 1} - ${from + currentCount} trong tổng số ${totalCount} khách hàng`;
+        }
+        
+        const totalPages = Math.ceil(totalCount / pageSize);
+        if(btnPrev) {
+            btnPrev.disabled = currentPage <= 1;
+            btnPrev.onclick = () => { if(currentPage > 1) { currentPage--; loadCustomers(); } };
+        }
+        if(btnNext) {
+            btnNext.disabled = currentPage >= totalPages;
+            btnNext.onclick = () => { if(currentPage < totalPages) { currentPage++; loadCustomers(); } };
+        }
+        
+        if(pageNums) {
+            pageNums.innerHTML = `<button class="w-10 h-10 rounded-lg bg-primary text-white font-bold text-body-sm">${currentPage}</button>`;
+            if (totalPages > 1) {
+               pageNums.innerHTML += `<span class="px-2 text-outline">/ ${totalPages}</span>`;
+            }
+        }
+    };
 
-    // Add Customer
+    // Filter Listeners
+    const searchInput = document.getElementById('search-input');
+    let searchTimeout;
+    if(searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchQuery = e.target.value.trim();
+                currentPage = 1;
+                loadCustomers();
+            }, 500); // debounce 500ms
+        });
+    }
+    
+    const staffSelect = document.getElementById('filter-staff');
+    if(staffSelect) {
+        staffSelect.addEventListener('change', (e) => {
+            staffFilter = e.target.value;
+            currentPage = 1;
+            loadCustomers();
+        });
+    }
+
+    // Import CSV via PapaParse
+    const btnImport = document.getElementById('btn-import-csv');
+    const csvUpload = document.getElementById('csv-upload');
+    if(btnImport && csvUpload) {
+        btnImport.addEventListener('click', () => csvUpload.click());
+        csvUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if(!file) return;
+            
+            Papa.parse(file, {
+                header: true,
+                skipEmptyLines: true,
+                complete: async function(results) {
+                    const rows = results.data;
+                    if(rows.length === 0) {
+                        alert("File CSV trống!");
+                        return;
+                    }
+                    
+                    const btnOriginalText = btnImport.innerHTML;
+                    btnImport.innerText = 'Đang tải lên...';
+                    btnImport.disabled = true;
+                    
+                    try {
+                        const insertData = rows.map(r => ({
+                            name: r.name || r['Họ Tên'] || r.Name,
+                            phone: r.phone || r['SĐT'] || r.Phone,
+                            email: r.email || r.Email || r['Email'],
+                            expected_value: parseFloat(r.expected_value || r['Giá trị'] || 0),
+                            assigned_to: user.id,
+                            created_by: user.id
+                        })).filter(r => r.name && r.phone); // Require name and phone
+                        
+                        if(insertData.length === 0) {
+                            alert("Không tìm thấy dòng hợp lệ. Vui lòng đảm bảo cột Tên và SĐT (name, phone) tồn tại.");
+                            return;
+                        }
+                        
+                        const { error } = await supabase.from('leads').insert(insertData);
+                        if(error) throw error;
+                        
+                        alert(`Nhập thành công ${insertData.length} khách hàng!`);
+                        currentPage = 1;
+                        loadCustomers();
+                    } catch(err) {
+                        alert('Lỗi import CSV: ' + err.message);
+                    } finally {
+                        btnImport.innerHTML = btnOriginalText;
+                        btnImport.disabled = false;
+                        csvUpload.value = '';
+                    }
+                }
+            });
+        });
+    }
+
+    // Add Customer Form Submit
     formAdd.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btnSubmit = document.getElementById('btn-submit-modal');
+        const origText = btnSubmit.innerText;
         btnSubmit.disabled = true;
         btnSubmit.innerText = 'Đang lưu...';
 
@@ -492,20 +634,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 phone: document.getElementById('cust-phone').value,
                 email: document.getElementById('cust-email').value,
                 expected_value: document.getElementById('cust-value').value || 0,
-                assigned_to: user.id, // Assign cho chính mình
+                assigned_to: user.id,
                 created_by: user.id
             };
 
-            const { data, error } = await supabase.from('leads').insert([newLead]);
+            const { error } = await supabase.from('leads').insert([newLead]);
             if (error) throw error;
             
             closeModal();
+            currentPage = 1;
             loadCustomers();
         } catch (err) {
             alert('Lỗi thêm khách hàng: ' + err.message);
         } finally {
             btnSubmit.disabled = false;
-            btnSubmit.innerText = 'Lưu khách hàng';
+            btnSubmit.innerText = origText;
         }
     });
 
